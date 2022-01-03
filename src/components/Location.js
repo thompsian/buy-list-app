@@ -1,9 +1,25 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 function Location() {
-  return (
-        <h2>Location Placeholder</h2>
-  );
+    const [location, setLocation] = useState("")
+    
+    function handleChange(e){
+        const {value} = e.target
+        setLocation(value)
+    }
+
+    console.log(location)
+    return (
+        <div>
+            <h2>Shopping Locations</h2>
+            <input
+                type="text"
+                onChange={handleChange}
+                value={location}
+            />
+            <button>Submit</button>
+        </div>
+    );
 }
 
 export default Location;
