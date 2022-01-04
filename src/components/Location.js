@@ -8,12 +8,12 @@ function Location() {
         setLocation(value)
     }
 
-    console.log(location)
     return (
         <div>
             <h2>Shopping Locations</h2>
             <input
                 type="text"
+                placeholder="Add Location"
                 onChange={handleChange}
                 value={location}
             />
