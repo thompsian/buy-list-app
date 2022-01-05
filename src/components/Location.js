@@ -1,22 +1,29 @@
 import React, {useState, useEffect} from 'react';
 
 function Location() {
-    const [newLocation, setNewLocation] = useState("")
+    const [name, setName] = useState("")
     const [location, setLocation] = useState([])
     
     useEffect(() => {
         getAllLocations()
     },[])
 
-    function handleChange(e){
-        const {value} = e.target
-        setNewLocation(value)
-    }
-
     function getAllLocations(){
         fetch("http://127.0.0.1:3000/locations")
         .then(res => res.json()
         .then(data => setLocation(data)))
+        .catch(errors => console.log("Error fetching all Locations", errors))
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        const locationObject = {name}
+
+        fetch('http://127.0.0.1:3000/locations', {
+            method: 'POST',
+            headers: { "Content-Type": "application/json"},
+            body: JSON.stringify(locationObject)
+        })
     }
 
     return (
@@ -26,16 +33,19 @@ function Location() {
                 {location.map(item => (
                     <li key = {item.id}>
                         {item.name}
+                        <button>Delete</button>
                     </li>
                 ))}
             </ul>
-            <input
-                type="text"
-                placeholder="Add Location"
-                onChange={handleChange}
-                value={newLocation}
-            />
-            <button>Submit</button>
+            <form onSubmit={handleSubmit}>
+                <label>Add A New Location:</label>
+                <input type="text" 
+                required
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                />
+                <button>Add</button>
+            </form>
         </div>
     );
 }
