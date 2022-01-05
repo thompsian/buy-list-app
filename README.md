@@ -2,9 +2,9 @@
 ## Shopping List React Progressive Web Application
 ### Dependencies:
 
-* Created with create-react-app. React version 17.0.2
+* Initialized with create-react-app. React version 17.0.2
 
-* Bootstrap
+* bootstrap
 
 * react-router-dom
 
