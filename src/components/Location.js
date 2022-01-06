@@ -26,13 +26,12 @@ function Location() {
         })
     }
 
-    const handleClick = (item) => {
+    const handleDelete = (item) => {
         fetch('http://127.0.0.1:3000/locations/' + item.id, {
             method: 'DELETE'
         })
     }
 
-    //delete button event runs on rerender
 
     return (
         <div>
@@ -41,7 +40,7 @@ function Location() {
                 {location.map(item => (
                     <li key = {item.id}>
                         {item.name}
-                        <button onClick={handleClick(item)}>Delete</button>
+                        <button>Shop Here</button>
                     </li>
                 ))}
             </ul>

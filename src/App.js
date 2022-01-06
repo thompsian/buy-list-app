@@ -1,16 +1,13 @@
 import React from 'react';
-import Header from './components/Header'
-import Location from './components/Location'
-import Footer from './components/Footer'
+import Main from './pages/Main'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 function App() {
-  return (
-    <>
-        <Header />
-        <Location />
-        <Footer />
-    </>
-  );
+    return (
+        <>
+            <Main />
+        </>
+    );
 }
 
 export default App;
