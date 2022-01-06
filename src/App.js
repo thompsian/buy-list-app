@@ -2,6 +2,7 @@ import React from 'react'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Main from './pages/Main'
+import List from './pages/List'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
                 <div className="content">
                     <Routes>
                         <Route path="/" element={<Main/>} />
+                        <Route path="/list" element={<List/>} />
                     </Routes>
                 </div>
                 <Footer />
