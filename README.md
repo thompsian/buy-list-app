@@ -4,11 +4,11 @@
 
 * Initialized with create-react-app. React version 17.0.2
 
-* bootstrap
+* bootstrap version 5.1.3
 
-* react-router-dom
+* react-router-dom version 6.2.1
 
-* styled-components
+* styled-components version 5.3.3
 
 ### Branches are the planned stages of development:
 
