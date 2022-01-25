@@ -1,8 +1,10 @@
 import React, {useState, useEffect} from 'react';
+import { Link, useParams } from 'react-router-dom'
 
 function Location() {
     const [name, setName] = useState("")
     const [location, setLocation] = useState([])
+    const { item } = useParams()
     
     useEffect(() => {
         getAllLocations()
@@ -40,7 +42,9 @@ function Location() {
                 {location.map(item => (
                     <li key = {item.id}>
                         {item.name}
-                        <button>Shop Here</button>
+                        <Link to={`/lists/${item.id}`}>
+                            <h5>Shop Here</h5>
+                        </Link>
                     </li>
                 ))}
             </ul>
