@@ -4,7 +4,7 @@ import { Link, useParams } from 'react-router-dom'
 function Location() {
     const [name, setName] = useState("")
     const [location, setLocation] = useState([])
-    const { LocationItem } = useParams()
+    const { locationItem } = useParams()
     
     useEffect(() => {
         getAllLocations()
