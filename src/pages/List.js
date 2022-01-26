@@ -1,9 +1,10 @@
 import React from 'react';
+import ItemList from '../components/ItemList'
 
 function List() {
   return (
     <>
-        <p>Shopping List Placeholder</p>
+        < ItemList />
     </>
   );
 }
