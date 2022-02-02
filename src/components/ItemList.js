@@ -2,16 +2,19 @@ import React, {useState, useEffect} from 'react'
 import { Link, useParams } from 'react-router-dom'
 
 function ItemList() {
+    const { locationID } = useParams()
+    const [loading, setLoading] = useState(true)
+
     const [newItem, setNewItem] = useState({
         name:"",
         category:"",
-        location_id:1
+        location_id: 1
     })
 
-    const [item, setItem] = useState({
+    const [items, setItems] = useState({
         name:"",
         category:"",
-        location_id:1
+        location_id: 1
     })
 
     useEffect(() => {
@@ -19,13 +22,16 @@ function ItemList() {
     },[])
 
     function getLocationItems(){
-        fetch("http://127.0.0.1:3000/items")
+        setLoading(true)
+
+        fetch('http://127.0.0.1:3000/items/')
         .then(res => res.json()
-        .then(data => setItem(data)))
+        .then(data => setItems(data)))
         .catch(errors => console.log("Error fetching all Items", errors))
+        .finally(() => {setLoading(false)})
     }
 
-    const handleChange = e => {
+    const handleChange = (e) => {
         setNewItem({
             ...newItem,
             [e.target.name]:e.target.value
@@ -52,10 +58,12 @@ function ItemList() {
                 <button>Add</button>
             </form>
             <ul>
-                {item.map(item => (
-                    <li key = {item.id}>
-                        {item.name}
-                        {item.category}
+                {loading ? <li>Data is Loading</li> : items.map(itemList => (
+                    <li key = {itemList.id}>
+                        {itemList.id}
+                        {itemList.name}
+                        {itemList.category}
+                        {itemList.location_id}
                     </li>
                 ))}
             </ul>

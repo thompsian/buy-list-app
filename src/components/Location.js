@@ -1,10 +1,9 @@
 import React, {useState, useEffect} from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 function Location() {
     const [name, setName] = useState("")
     const [location, setLocation] = useState([])
-    const { locationItem } = useParams()
     
     useEffect(() => {
         getAllLocations()
