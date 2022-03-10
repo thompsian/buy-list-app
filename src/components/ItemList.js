@@ -28,7 +28,7 @@ function ItemList() {
         .then(res => res.json()
         .then(data => setItems(data)))
         .catch(errors => console.log("Error fetching all Items", errors))
-        .finally(() => {setLoading(false)})
+        .finally(() => {setLoading(false)}) 
     }
 
     const handleChange = (e) => {
