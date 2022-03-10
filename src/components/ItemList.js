@@ -8,13 +8,13 @@ function ItemList() {
     const [newItem, setNewItem] = useState({
         name:"",
         category:"",
-        location_id: 1
+        location_id: locationID
     })
 
     const [items, setItems] = useState({
         name:"",
         category:"",
-        location_id: 1
+        location_id: locationID
     })
 
     useEffect(() => {

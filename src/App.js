@@ -13,7 +13,7 @@ function App() {
                 <div className="content">
                     <Routes>
                         <Route path="/" element={<Main/>} />
-                        <Route path="/lists/:id" element={<List/>} />
+                        <Route path="/lists/:locationID" element={<List/>} />
                     </Routes>
                 </div>
                 <Footer />
