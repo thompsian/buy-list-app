@@ -9,6 +9,7 @@ function Location() {
         getAllLocations()
     },[])
 
+
     function getAllLocations(){
         setLoading(true)
 
