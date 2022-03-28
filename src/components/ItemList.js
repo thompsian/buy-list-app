@@ -31,23 +31,6 @@ function ItemList() {
         .finally(() => {setLoading(false)}) 
     }
 
-    const handleChange = (e) => {
-        setNewItem({
-            ...newItem,
-            [e.target.name]:e.target.value
-        })
-    }
-
-    const handleAddSubmit = (e) => {
-        e.preventDefault()
-
-        fetch('http://127.0.0.1:3000/items', {
-            method: 'POST',
-            headers: { "Content-Type": "application/json"},
-            body: JSON.stringify(newItem)
-        })
-    }
-
     const handleDeleteItem = (id) => {
         fetch('http://127.0.0.1:3000/items/' + id, {
             method: 'DELETE'
