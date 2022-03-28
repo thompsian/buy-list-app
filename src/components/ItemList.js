@@ -48,10 +48,12 @@ function ItemList() {
         })
     }
 
+    // Adding && conditional in the item map added Warning: validateDOMNesting(...): <li> cannot appear as a descendant of <li>
+    
     return (
         <div>
             <ul>
-                {loading ? <li>Data is Loading</li> : items.map(itemList => (
+                {loading ? <li>Data is Loading</li> : items.map(itemList => ( itemList.location_id == locationID && 
                     <li key = {itemList.id}>
                         {itemList.id}
                         {itemList.name}
