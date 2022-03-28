@@ -48,7 +48,11 @@ function ItemList() {
         })
     }
 
-    // Adding && conditional in the item map added Warning: validateDOMNesting(...): <li> cannot appear as a descendant of <li>
+    const handleDeleteItem = (id) => {
+        fetch('http://127.0.0.1:3000/items/' + id, {
+            method: 'DELETE'
+        })
+    }
     
     return (
         <div>
@@ -59,6 +63,7 @@ function ItemList() {
                         {itemList.name}
                         {itemList.category}
                         {itemList.location_id}
+                        <button onClick={(e) => handleDeleteItem(itemList.id, e)}>Item In Cart</button>
                     </li>
                 ))}
             </ul>

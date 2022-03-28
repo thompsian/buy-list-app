@@ -20,8 +20,8 @@ function Location() {
         .finally(() => {setLoading(false)}) 
     }
 
-    const handleDelete = (locationItem) => {
-        fetch('http://127.0.0.1:3000/locations/' + locationItem.id, {
+    const handleDelete = (id) => {
+        fetch('http://127.0.0.1:3000/locations/' + id, {
             method: 'DELETE'
         })
     }
@@ -37,6 +37,7 @@ function Location() {
                         <Link to={`/lists/${locationItem.id}`}>
                             <h5>Shop Here</h5>
                         </Link>
+                        <button onClick={(e) => handleDelete(locationItem.id, e)}>Delete Location</button>
                     </li>
                 ))}
             </ul>
