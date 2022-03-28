@@ -50,13 +50,6 @@ function ItemList() {
 
     return (
         <div>
-            <h3>Shopping List for Location Placeholder</h3>
-            <h5>Add an Item to the Shopping List</h5>
-            <form onSubmit={handleAddSubmit}>
-                <input type="text" name="name" value={newItem.name} onChange={handleChange}/>
-                <input type="text" name="category" value={newItem.category} onChange={handleChange}/>
-                <button>Add</button>
-            </form>
             <ul>
                 {loading ? <li>Data is Loading</li> : items.map(itemList => (
                     <li key = {itemList.id}>
