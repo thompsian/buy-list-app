@@ -1,15 +1,9 @@
 import React, {useState, useEffect} from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
 function ItemList() {
     const { locationID } = useParams()
     const [loading, setLoading] = useState(true)
-
-    const [newItem, setNewItem] = useState({
-        name:"",
-        category:"",
-        location_id: locationID
-    })
 
     const [items, setItems] = useState({
         name:"",
