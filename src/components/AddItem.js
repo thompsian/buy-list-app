@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 
 function AddItem() {
     const { locationID } = useParams()
-    const [locationInfo, setLocationInfo] = useState([])
+    const [locationInfo, setLocationInfo] = useState()
     const [loading, setLoading] = useState(true)
 
     const [newItem, setNewItem] = useState({
@@ -45,7 +45,7 @@ function AddItem() {
 
     return (
         <div>
-            {loading ? <h3>Data is Loading</h3>:<h3>Shopping List for {locationInfo.name}</h3>}
+            {loading ? <h3>Data is Loading</h3>:<h3>Shopping List for {locationInfo[0].name}</h3>}
             <h5>Add an Item to the Shopping List</h5>
             <form onSubmit={handleAddSubmit}>
                 <input type="text" name="name" value={newItem.name} onChange={handleChange}/>

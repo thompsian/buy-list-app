@@ -42,10 +42,8 @@ function ItemList() {
             <ul>
                 {loading ? <li>Data is Loading</li> : items.map(itemList => ( itemList.location_id == locationID && 
                     <li key = {itemList.id}>
-                        {itemList.id}
                         {itemList.name}
                         {itemList.category}
-                        {itemList.location_id}
                         <button onClick={(e) => handleDeleteItem(itemList.id, e)}>Item In Cart</button>
                     </li>
                 ))}
