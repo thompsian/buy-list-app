@@ -1,14 +1,30 @@
-import React, { useState } from 'react'
+import React, { useState , useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
 function AddItem() {
     const { locationID } = useParams()
+    const [locationInfo, setLocationInfo] = useState([])
+    const [loading, setLoading] = useState(true)
 
     const [newItem, setNewItem] = useState({
         name:"",
         category:"",
         location_id: locationID
     })
+
+    useEffect(() => {
+        getLocationInfo()
+    },[])
+
+    function getLocationInfo(){
+        setLoading(true)
+
+        fetch("http://127.0.0.1:3000/locations/" + locationID)
+        .then(res => res.json()
+        .then(data => setLocationInfo(data)))
+        .catch(errors => console.log("Error fetching location information", errors))
+        .finally(() => {setLoading(false)}) 
+    }
 
     const handleChange = (e) => {
         setNewItem({
@@ -29,7 +45,7 @@ function AddItem() {
 
     return (
         <div>
-            <h3>Shopping List for Location Placeholder</h3>
+            {loading ? <h3>Data is Loading</h3>:<h3>Shopping List for {locationInfo.name}</h3>}
             <h5>Add an Item to the Shopping List</h5>
             <form onSubmit={handleAddSubmit}>
                 <input type="text" name="name" value={newItem.name} onChange={handleChange}/>

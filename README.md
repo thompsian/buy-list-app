@@ -16,6 +16,5 @@
 1. mvp - Can add / remove shopping locations and items for each location. Lightweight, simple styling with functionallity as top priority.
 2. Styled - Add bootstrap elements. Polished user experience.
 3. Authentication - Users must be authenticated via github,google,apple prior to using application. Protected routes.
-4. Diagnostic - Error handling and diagnostic tools enabled.
-5. Mobile - Version optimized for mobile devices. Progressive Web Application features enabled.
-6. Feature - Add additional input options and display options. 
+4. Diagnostic - Error handling , diagnostic tools, and Progressive Web Application features enabled.
+5. Feature - Add additional input options and display options. 
