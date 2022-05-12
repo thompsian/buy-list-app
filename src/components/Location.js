@@ -4,10 +4,11 @@ import { Link } from 'react-router-dom'
 function Location() {
     const [location, setLocation] = useState([])
     const [loading, setLoading] = useState(true)
+    const [deleteCount, setDeleteCount] = useState(0)
     
     useEffect(() => {
         getAllLocations()
-    },[])
+    },[deleteCount])
 
 
     function getAllLocations(){
@@ -21,9 +22,8 @@ function Location() {
     }
 
     const handleDelete = (id) => {
-        fetch('http://127.0.0.1:3000/locations/' + id, {
-            method: 'DELETE'
-        })
+        fetch('http://127.0.0.1:3000/locations/' + id, { method: 'DELETE' })
+        .then(() => setDeleteCount(deleteCount + 1))
     }
 
 

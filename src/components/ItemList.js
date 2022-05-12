@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 function ItemList() {
     const { locationID } = useParams()
     const [loading, setLoading] = useState(true)
+    const [deleteCount, setDeleteCount] = useState(0)
 
     const [items, setItems] = useState({
         name:"",
@@ -13,7 +14,7 @@ function ItemList() {
 
     useEffect(() => {
         getLocationItems()
-    },[])
+    },[deleteCount])
 
     function getLocationItems(){
         setLoading(true)
@@ -26,9 +27,8 @@ function ItemList() {
     }
 
     const handleDeleteItem = (id) => {
-        fetch('http://127.0.0.1:3000/items/' + id, {
-            method: 'DELETE'
-        })
+        fetch('http://127.0.0.1:3000/items/' + id, { method: 'DELETE' })
+        .then(() => setDeleteCount(deleteCount + 1))
     }
     
     return (
