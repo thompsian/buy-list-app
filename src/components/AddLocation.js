@@ -1,7 +1,9 @@
-import React, {useState} from 'react'
+import React, {useState , useContext} from 'react'
+import {LocationContext} from '../contexts/locationContext'
 
-function AddLocation() {
+function AddLocation(props) {
     const [name, setName] = useState("")
+    const {addLocationCount, addCount} = useContext(LocationContext)
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -12,6 +14,7 @@ function AddLocation() {
             headers: { "Content-Type": "application/json"},
             body: JSON.stringify(locationObject)
         })
+        .then(() => addCount())
     }
 
     return (

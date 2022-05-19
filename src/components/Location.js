@@ -1,14 +1,17 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import { Link } from 'react-router-dom'
+import {LocationContext} from '../contexts/locationContext'
 
-function Location() {
+function Location(props) {
     const [location, setLocation] = useState([])
     const [loading, setLoading] = useState(true)
     const [deleteCount, setDeleteCount] = useState(0)
+    const {addLocationCount} = useContext(LocationContext)
+
     
     useEffect(() => {
         getAllLocations()
-    },[deleteCount])
+    },[deleteCount, addLocationCount])
 
 
     function getAllLocations(){
