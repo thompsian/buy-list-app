@@ -1,10 +1,12 @@
-import React, { useState , useEffect } from 'react'
+import React, { useState , useEffect, useContext } from 'react'
 import { useParams } from 'react-router-dom'
+import {ItemContext} from '../contexts/itemContext'
 
-function AddItem() {
+function AddItem(props) {
     const { locationID } = useParams()
     const [locationInfo, setLocationInfo] = useState()
     const [loading, setLoading] = useState(true)
+    const {addItemCount, addCount} = useContext(ItemContext)
 
     const [newItem, setNewItem] = useState({
         name:"",
@@ -41,6 +43,7 @@ function AddItem() {
             headers: { "Content-Type": "application/json"},
             body: JSON.stringify(newItem)
         })
+        .then(() => addCount())
     }
 
     return (

@@ -1,10 +1,12 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import { useParams } from 'react-router-dom'
+import {ItemContext} from '../contexts/itemContext'
 
 function ItemList() {
     const { locationID } = useParams()
     const [loading, setLoading] = useState(true)
     const [deleteCount, setDeleteCount] = useState(0)
+    const {addItemCount} = useContext(ItemContext)
 
     const [items, setItems] = useState({
         name:"",
@@ -14,7 +16,7 @@ function ItemList() {
 
     useEffect(() => {
         getLocationItems()
-    },[deleteCount])
+    },[deleteCount, addItemCount])
 
     function getLocationItems(){
         setLoading(true)
