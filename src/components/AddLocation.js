@@ -14,6 +14,7 @@ const AddForm = styled.form`
 
 const AddLabel = styled.label`
     padding: 15px;
+    font-size: 18px;
 `
 
 const AddInput = styled.input`

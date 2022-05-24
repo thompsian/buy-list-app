@@ -8,7 +8,7 @@ const Section = styled.div`
 `
 const SubTitle = styled.h6`
     font-size: 12px;
-    text-align:center;
+    text-align: center;
     margin: 0 auto;
 `
 const LinkList = styled.ul`
