@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 const Title = styled.h1`
     font-size: 38px;
-    margin-top: 15px;
+    margin-top: 10px;
     text-align:center;
 `
 const SubTitle = styled.h6`
@@ -16,6 +16,10 @@ const NavBar = styled.ul`
     text-decoration: none;
     text-align:left;
     list-style-type:none;
+    &:hover {
+        font-weight: bold;
+    }
+    margin: 0 auto;
 `
 const Section = styled.div`
     background-color: #ccccb3;
@@ -24,9 +28,9 @@ const Section = styled.div`
     padding: 15px;
 `
 const StyledLink = styled(Link)`
-  color: Black;
-  text-decoration: none;
-  margin: 1rem;
+    color: Black;
+    text-decoration: none;
+    margin: 1rem;
 `;
 
 function Header() {
