@@ -30,6 +30,7 @@ const Section = styled.div`
 const StyledLink = styled(Link)`
     color: Black;
     text-decoration: none;
+    padding: 5px
     margin: 1rem;
 `;
 
