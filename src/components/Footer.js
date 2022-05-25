@@ -1,26 +1,54 @@
 import React from 'react';
+import styled from 'styled-components'
+
+const Section = styled.div`
+    background-color: #ccccb3;
+    border-radius: 15px; 
+    padding: 5px;
+`
+const SubTitle = styled.h6`
+    font-size: 12px;
+    text-align: center;
+    margin: 0 auto;
+`
+const LinkList = styled.ul`
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
+
+const ListItem = styled.li`
+    float: left;
+`
+
+const StyledLink = styled.a`
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 5px 10px;
+    text-decoration: none;
+`
 
 function Footer() {
   return (
-        <div>
-            <h6>Copyright 2022: Developed by Ian Thompson</h6>
-            <nav>
-            <ul>
-                <li>
-                    <a href = "https://thompsian.github.io/" target="_blank" rel="noreferrer">Portfolio</a>
-                </li>
-                <li>
-                    <a href = "https://www.linkedin.com/in/thompsian/" target="_blank" rel="noreferrer">LinkedIn</a>
-                </li>
-                <li>
-                    <a href = "https://github.com/thompsian/buy-list-app/" target="_blank" rel="noreferrer">WebApp Github</a>
-                </li>
-                <li>
-                    <a href = "https://github.com/thompsian/BuyListAPI/" target="_blank" rel="noreferrer">API Github</a>
-                </li>
-            </ul>
-        </nav>
-        </div>
+        <Section>
+            <SubTitle>Copyright 2022: Developed by Ian Thompson</SubTitle>
+            <LinkList>
+                <ListItem>
+                    <StyledLink href = "https://thompsian.github.io/" target="_blank" rel="noreferrer">Portfolio</StyledLink>
+                </ListItem>
+                <ListItem>
+                    <StyledLink href = "https://www.linkedin.com/in/thompsian/" target="_blank" rel="noreferrer">LinkedIn</StyledLink>
+                </ListItem>
+                <ListItem>
+                    <StyledLink href = "https://github.com/thompsian/buy-list-app/" target="_blank" rel="noreferrer">WebApp Github</StyledLink>
+                </ListItem>
+                <ListItem>
+                    <StyledLink href = "https://github.com/thompsian/BuyAPI/" target="_blank" rel="noreferrer">API Github</StyledLink>
+                </ListItem>
+            </LinkList>
+        </Section>
   );
 }
 
