@@ -16,9 +16,6 @@ const NavBar = styled.ul`
     text-decoration: none;
     text-align:left;
     list-style-type:none;
-    &:hover {
-        font-weight: bold;
-    }
     margin: 0 auto;
 `
 const Section = styled.div`

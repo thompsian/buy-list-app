@@ -28,9 +28,6 @@ const StyledLink = styled.a`
     text-align: center;
     padding: 5px 10px;
     text-decoration: none;
-    &:hover {
-        font-weight: bold;
-    }
 `
 
 function Footer() {

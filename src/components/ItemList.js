@@ -26,14 +26,11 @@ const StyledButton = styled.button`
     text-align: center;
     font-size: 16px;
     margin: 10px;
-    &:hover {
-        font-weight: bold;
-    }
     margin-left: auto;
 `
 
 const StyledParagraph = styled.p`
-    flex:2;
+    flex: 1;
     padding: 5px;
 `
 
