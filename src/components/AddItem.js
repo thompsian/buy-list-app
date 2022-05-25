@@ -79,6 +79,7 @@ function AddItem(props) {
             headers: { "Content-Type": "application/json"},
             body: JSON.stringify(newItem)
         })
+        .then(() => setNewItem({name:"",category:"",location_id: locationID}))
         .then(() => addCount())
     }
 
