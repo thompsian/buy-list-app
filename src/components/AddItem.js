@@ -88,9 +88,9 @@ function AddItem(props) {
             <SubTitle>Add an Item to the Shopping List:</SubTitle>
             <StyledForm onSubmit={handleAddSubmit}>
                 <StyledLabel>Item Name:</StyledLabel>
-                <StyledInput type="text" name="name" value={newItem.name} onChange={handleChange}/>
+                <StyledInput type="text" placeholder = "Enter Item Name" name="name" value={newItem.name} onChange={handleChange}/>
                 <StyledLabel>Item Category:</StyledLabel>
-                <StyledInput type="text" name="category" value={newItem.category} onChange={handleChange}/>
+                <StyledInput type="text" placeholder = "Enter Item Category" name="category" value={newItem.category} onChange={handleChange}/>
                 <StyledButton>Add</StyledButton>
             </StyledForm>
         </Section>

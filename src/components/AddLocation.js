@@ -38,6 +38,7 @@ function AddLocation(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+
         const locationObject = {name}
 
         fetch('http://127.0.0.1:3000/locations', {
@@ -45,6 +46,7 @@ function AddLocation(props) {
             headers: { "Content-Type": "application/json"},
             body: JSON.stringify(locationObject)
         })
+        .then(() => setName(""))
         .then(() => addCount())
     }
 
@@ -54,6 +56,7 @@ function AddLocation(props) {
                 <AddLabel>Add A New Location:</AddLabel>
                 <AddInput type="text" 
                     required
+                    placeholder="Enter Location Name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                 />
