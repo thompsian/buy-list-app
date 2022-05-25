@@ -39,6 +39,7 @@ function ItemList() {
     const [loading, setLoading] = useState(true)
     const [deleteCount, setDeleteCount] = useState(0)
     const {addItemCount} = useContext(ItemContext)
+    const addressAPI = process.env.REACT_APP_BASE_API_URL
 
     const [items, setItems] = useState({
         name:"",
@@ -53,7 +54,7 @@ function ItemList() {
     function getLocationItems(){
         setLoading(true)
 
-        fetch('http://127.0.0.1:3000/items/')
+        fetch(`${addressAPI}/items/`)
         .then(res => res.json()
         .then(data => setItems(data)))
         .catch(errors => console.log("Error fetching all Items", errors))
@@ -61,7 +62,7 @@ function ItemList() {
     }
 
     const handleDeleteItem = (id) => {
-        fetch('http://127.0.0.1:3000/items/' + id, { method: 'DELETE' })
+        fetch(`${addressAPI}/items/${id}`, { method: 'DELETE' })
         .then(() => setDeleteCount(deleteCount + 1))
     }
     

@@ -43,6 +43,7 @@ function AddItem(props) {
     const [locationInfo, setLocationInfo] = useState()
     const [loading, setLoading] = useState(true)
     const {addItemCount, addCount} = useContext(ItemContext)
+    const addressAPI = process.env.REACT_APP_BASE_API_URL
 
     const [newItem, setNewItem] = useState({
         name:"",
@@ -57,7 +58,7 @@ function AddItem(props) {
     function getLocationInfo(){
         setLoading(true)
 
-        fetch("http://127.0.0.1:3000/locations/" + locationID)
+        fetch(`${addressAPI}/locations/${locationID}`)
         .then(res => res.json()
         .then(data => setLocationInfo(data)))
         .catch(errors => console.log("Error fetching location information", errors))
@@ -74,7 +75,7 @@ function AddItem(props) {
     const handleAddSubmit = (e) => {
         e.preventDefault()
 
-        fetch('http://127.0.0.1:3000/items', {
+        fetch(`${addressAPI}/items`, {
             method: 'POST',
             headers: { "Content-Type": "application/json"},
             body: JSON.stringify(newItem)

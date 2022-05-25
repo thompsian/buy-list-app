@@ -35,13 +35,14 @@ const AddButton = styled.button`
 function AddLocation(props) {
     const [name, setName] = useState("")
     const {addLocationCount, addCount} = useContext(LocationContext)
+    const addressAPI = process.env.REACT_APP_BASE_API_URL
 
     const handleSubmit = (e) => {
         e.preventDefault()
 
         const locationObject = {name}
 
-        fetch('http://127.0.0.1:3000/locations', {
+        fetch(`${addressAPI}/locations`, {
             method: 'POST',
             headers: { "Content-Type": "application/json"},
             body: JSON.stringify(locationObject)

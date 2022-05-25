@@ -54,7 +54,7 @@ function Location(props) {
     const [loading, setLoading] = useState(true)
     const [deleteCount, setDeleteCount] = useState(0)
     const {addLocationCount} = useContext(LocationContext)
-
+    const addressAPI = process.env.REACT_APP_BASE_API_URL
     
     useEffect(() => {
         getAllLocations()
@@ -64,7 +64,7 @@ function Location(props) {
     function getAllLocations(){
         setLoading(true)
 
-        fetch("http://127.0.0.1:3000/locations")
+        fetch(`${addressAPI}/locations`)
         .then(res => res.json()
         .then(data => setLocation(data)))
         .catch(errors => console.log("Error fetching all Locations", errors))
@@ -72,7 +72,7 @@ function Location(props) {
     }
 
     const handleDelete = (id) => {
-        fetch('http://127.0.0.1:3000/locations/' + id, { method: 'DELETE' })
+        fetch(`${addressAPI}/locations/${id}`, { method: 'DELETE' })
         .then(() => setDeleteCount(deleteCount + 1))
     }
 
