@@ -42,7 +42,7 @@ function AddItem(props) {
     const { locationID } = useParams()
     const [locationInfo, setLocationInfo] = useState()
     const [loading, setLoading] = useState(true)
-    const {addItemCount, addCount} = useContext(ItemContext)
+    const { addItemCount, addCount } = useContext(ItemContext)
     const addressAPI = process.env.REACT_APP_BASE_API_URL
 
     const [newItem, setNewItem] = useState({
