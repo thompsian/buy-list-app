@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import ItemList from '../components/ItemList';
 import {ItemContext} from '../contexts/itemContext'
 
-describe('AddItem Component', () => {
+describe('ItemList Component', () => {
     test('should render a single list', () => {
         render(<ItemContext.Provider value={0}>
             <ItemList />
