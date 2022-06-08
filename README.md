@@ -2,7 +2,7 @@
 ## Shopping List React Progressive Web Application
 ### Purpose of this application is to demonstrate web development skills of a Manufacturing Quality Engineer transitioning to Software Development after a Web Development Bootcamp.
 
-### mvp Branch Deployed at [https://buylist-thompsian.netlify.app/](https://buylist-thompsian.netlify.app/)
+### mvp + Testing Branch Deployed at [https://buylist-thompsian.netlify.app/](https://buylist-thompsian.netlify.app/)
 
 ### Dependencies:
 
