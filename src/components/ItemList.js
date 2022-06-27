@@ -11,8 +11,11 @@ const Section = styled.div`
 
 const ListSection = styled.ul`
     list-style-type: none;
-    margin: 0;
-    padding: 0;
+    padding-left: 0;
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-rows: repeat(2,100px);
 `
 const ListItem = styled.li`
     display:flex;
@@ -22,7 +25,7 @@ const ListItem = styled.li`
     margin: 5px;
 `
 const StyledButton = styled.button`
-    padding: 8px 25px;
+    padding: 1px 4px;
     text-align: center;
     font-size: 16px;
     margin: 10px;
@@ -73,7 +76,7 @@ function ItemList() {
                     <ListItem key = {itemList.id}>
                         <StyledParagraph>{itemList.name}</StyledParagraph>
                         <StyledParagraph>{itemList.category}</StyledParagraph>
-                        <StyledButton onClick={(e) => handleDeleteItem(itemList.id, e)}>Item In Cart</StyledButton>
+                        <StyledButton onClick={(e) => handleDeleteItem(itemList.id, e)}>Remove</StyledButton>
                     </ListItem>
                 ))}
             </ListSection>
