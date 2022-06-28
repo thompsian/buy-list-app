@@ -6,7 +6,7 @@ import styled from 'styled-components'
 const Section = styled.div`
     border-radius: 15px; 
     margin: 0 auto;
-    padding: 15px;
+    padding: 1em;
 `
 
 const ListSection = styled.ul`
@@ -22,19 +22,24 @@ const ListItem = styled.li`
     border-style: solid;
     border-width: 1px;
     border-radius: 15px; 
-    margin: 5px;
+    margin: 0.25em;
 `
 const StyledButton = styled.button`
-    padding: 1px 4px;
+    padding: 0.15em 0.6em;
     text-align: center;
-    font-size: 16px;
-    margin: 10px;
+    font-size: 1em;
+    margin: 1em;
     margin-left: auto;
+    &:hover {
+        border-color: red;
+     }
 `
 
 const StyledParagraph = styled.p`
     flex: 1;
-    padding: 5px;
+    padding: 0.5em;
+    font-size: 1em;
+    text-align: center;
 `
 
 function ItemList() {
