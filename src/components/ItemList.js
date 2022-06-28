@@ -6,32 +6,40 @@ import styled from 'styled-components'
 const Section = styled.div`
     border-radius: 15px; 
     margin: 0 auto;
-    padding: 15px;
+    padding: 1em;
 `
 
 const ListSection = styled.ul`
     list-style-type: none;
-    margin: 0;
-    padding: 0;
+    padding-left: 0;
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-auto-rows: 100px;
 `
 const ListItem = styled.li`
     display:flex;
     border-style: solid;
     border-width: 1px;
     border-radius: 15px; 
-    margin: 5px;
+    margin: 0.25em;
 `
 const StyledButton = styled.button`
-    padding: 8px 25px;
+    padding: 0.15em 0.6em;
     text-align: center;
-    font-size: 16px;
-    margin: 10px;
+    font-size: 1em;
+    margin: 1em;
     margin-left: auto;
+    &:hover {
+        border-color: red;
+     }
 `
 
 const StyledParagraph = styled.p`
     flex: 1;
-    padding: 5px;
+    padding: 0.5em;
+    font-size: 1em;
+    text-align: center;
 `
 
 function ItemList() {
@@ -73,7 +81,7 @@ function ItemList() {
                     <ListItem key = {itemList.id}>
                         <StyledParagraph>{itemList.name}</StyledParagraph>
                         <StyledParagraph>{itemList.category}</StyledParagraph>
-                        <StyledButton onClick={(e) => handleDeleteItem(itemList.id, e)}>Item In Cart</StyledButton>
+                        <StyledButton onClick={(e) => handleDeleteItem(itemList.id, e)}>Remove</StyledButton>
                     </ListItem>
                 ))}
             </ListSection>

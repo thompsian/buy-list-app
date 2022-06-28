@@ -3,12 +3,12 @@ import { Link } from "react-router-dom"
 import styled from 'styled-components'
 
 const Title = styled.h1`
-    font-size: 38px;
-    margin-top: 10px;
+    font-size: 2.5rem;
+    margin-top: .25em;
     text-align:center;
 `
 const SubTitle = styled.h6`
-    font-size: 16px;
+    font-size: 1.25rem;
     text-align:center;
     margin: 0 auto;
 `
@@ -22,13 +22,14 @@ const Section = styled.div`
     background-color: #ccccb3;
     border-radius: 15px; 
     margin: 0 auto;
-    padding: 15px;
+    padding: 1em;
 `
 const StyledLink = styled(Link)`
     color: Black;
     text-decoration: none;
-    padding: 5px
+    padding: .25em
     margin: 1rem;
+    font-size: 1rem;
 `;
 
 function Header() {

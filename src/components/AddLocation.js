@@ -6,29 +6,29 @@ const Section = styled.div`
     background-color: #f5f5f0;
     border-radius: 15px; 
     margin: 0 auto;
-    padding: 15px;
+    padding: 1em;
 `
 
 const AddForm = styled.form`
 `
 
 const AddLabel = styled.label`
-    padding: 15px;
-    font-size: 18px;
+    padding: .5em;
+    font-size: 1rem;
 `
 
 const AddInput = styled.input`
-    padding: 5px;
-    font-size: 16px;
+    padding: .5em;
+    font-size: 1rem;
 `
 
 const AddButton = styled.button`
-    padding: 10px 30px;
+    padding: .5em 2em;
     text-align: center;
-    font-size: 16px;
-    margin: 10px;
+    font-size: 1rem;
+    margin-left: .5em;
     &:hover {
-        font-weight: bold;
+        border-color: green;
     }
 `
 
