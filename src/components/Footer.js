@@ -4,10 +4,10 @@ import styled from 'styled-components'
 const Section = styled.div`
     background-color: #ccccb3;
     border-radius: 15px; 
-    padding: 5px;
+    padding: 0.33em;
 `
 const SubTitle = styled.h6`
-    font-size: 12px;
+    font-size: .75rem;
     text-align: center;
     margin: 0 auto;
 `
@@ -26,7 +26,7 @@ const StyledLink = styled.a`
     display: block;
     color: black;
     text-align: center;
-    padding: 5px 10px;
+    padding: .15em .75em;
     text-decoration: none;
 `
 
