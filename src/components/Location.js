@@ -6,11 +6,11 @@ import styled from 'styled-components'
 const Section = styled.div`
     border-radius: 15px; 
     margin: 0 auto;
-    padding: 15px;
+    padding: 1em;
 `
 const Title = styled.h2`
-    font-size: 22px;
-    margin-top: 10px;
+    font-size: 1.5rem;
+    margin-top: 0;
     text-align: left;
 `
 
@@ -23,28 +23,28 @@ const ListItem = styled.li`
     display: flex;
     background-color: #f5f5f0;
     border-radius: 15px; 
-    margin: 5px;
-    padding: 15px;
+    margin: 0.5em;
+    padding: 1.5em;
 `
 const LocationName = styled.h4`
     text-align: center
-    font-size: 38px;
+    font-size: 3rem;
     font-weight: bold;
 `
 const StyledLink = styled(Link)`  
     color: Black;
     text-decoration: none;
     margin-right: auto;
-    font-size: 16px;
+    font-size: 1rem;
 `;
 
 const DeleteButton = styled.button`
-    padding: 8px 25px;
+    padding: .5em 1.5em;
     text-align: center;
-    font-size: 16px;
-    margin: 10px;
+    font-size: 1rem;
+    margin: .5em;
     &:hover {
-        font-weight: bold;
+       border-color: red;
     }
     margin-left: auto;
 `
