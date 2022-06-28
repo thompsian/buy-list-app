@@ -7,35 +7,38 @@ const Section = styled.div`
     background-color: #f5f5f0;
     border-radius: 15px; 
     margin: 0 auto;
-    padding: 15px;
+    padding: 0.75em;
 `
 const Title = styled.h3`
-    font-size: 22px;
-    margin: 0px;
-    text-align: left;
+    font-size: 1.5rem;
+    margin: 0;
+    text-align: center;
 `
 const SubTitle = styled.h5`
     text-align: left;
-    margin: 0px;
+    margin: 0;
+    padding: 0.25em;
+    font-size: 0.9rem;
 `
 const StyledForm = styled.form`
 
 `
 const StyledButton = styled.button`
-    padding: 8px 20px;
+    padding: .5em 2em;
     text-align: center;
-    font-size: 16px;
-    margin: 15px;
+    font-size: 1rem;
+    margin-left: 1em;
     &:hover {
-        font-weight: bold;
+        border-color:green;
     }
 `
 const StyledLabel = styled.label`
-    padding: 5px;
-
+    padding: .5em;
+    font-size: 1rem;
 `
 const StyledInput = styled.input`
-    margin: 5px;
+    padding: .5em;
+    font-size: 1rem;
 `
 
 function AddItem(props) {
