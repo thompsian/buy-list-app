@@ -15,7 +15,7 @@ const ListSection = styled.ul`
     display: grid;
     grid-gap: 5px;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-template-rows: repeat(2,100px);
+    grid-auto-rows: 100px;
 `
 const ListItem = styled.li`
     display:flex;

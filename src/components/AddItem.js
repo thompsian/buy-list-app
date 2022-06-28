@@ -11,12 +11,12 @@ const Section = styled.div`
 `
 const Title = styled.h3`
     font-size: 22px;
-    margin-top: 10px;
+    margin: 0px;
     text-align: left;
 `
 const SubTitle = styled.h5`
-    margin-top: 10px;
     text-align: left;
+    margin: 0px;
 `
 const StyledForm = styled.form`
 
