@@ -10,6 +10,7 @@ const Section = styled.div`
 `
 
 const AddForm = styled.form`
+    display: flex;
 `
 
 const AddLabel = styled.label`
@@ -20,13 +21,14 @@ const AddLabel = styled.label`
 const AddInput = styled.input`
     padding: .5em;
     font-size: 1rem;
+    flex: 1;
 `
 
 const AddButton = styled.button`
     padding: .5em 2em;
     text-align: center;
     font-size: 1rem;
-    margin-left: .5em;
+    margin-left: auto;
     &:hover {
         cursor: pointer;
     }
