@@ -39,7 +39,7 @@ function Header() {
   return (
     <Section>
         <Title>BuyList</Title>
-        <SubTitle>The Simplest Shopping List Web Application</SubTitle>
+        <SubTitle>The Simplest Shopping List</SubTitle>
         <NavBar>
             <StyledLink to="/">Home</StyledLink>
         </NavBar>
