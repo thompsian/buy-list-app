@@ -30,6 +30,9 @@ const StyledLink = styled(Link)`
     padding: .25em
     margin: 1rem;
     font-size: 1rem;
+    &:hover {
+        text-decoration:underline ;
+    }
 `;
 
 function Header() {
