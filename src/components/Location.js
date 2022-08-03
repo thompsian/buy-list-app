@@ -33,9 +33,18 @@ const LocationName = styled.h4`
 `
 const StyledLink = styled(Link)`  
     color: Black;
+    background: #adad85;
     text-decoration: none;
+    border-radius: 15px;
+    padding .25em 1em;
     margin-right: auto;
     font-size: 1rem;
+    &:hover {
+        background: #ccccb3;
+     }
+    &:focus {
+        background: #ccccb3;
+     }
 `;
 
 const DeleteButton = styled.button`
@@ -44,7 +53,7 @@ const DeleteButton = styled.button`
     font-size: 1rem;
     margin: .5em;
     &:hover {
-       border-color: red;
+       cursor: pointer;
     }
     margin-left: auto;
 `
