@@ -28,7 +28,7 @@ const AddButton = styled.button`
     font-size: 1rem;
     margin-left: .5em;
     &:hover {
-        border-color: green;
+        cursor: pointer;
     }
 `
 

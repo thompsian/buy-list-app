@@ -28,6 +28,9 @@ const StyledLink = styled.a`
     text-align: center;
     padding: .15em .75em;
     text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+    }
 `
 
 function Footer() {

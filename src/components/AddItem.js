@@ -21,13 +21,17 @@ const SubTitle = styled.h5`
     font-size: 0.9rem;
 `
 const StyledForm = styled.form`
+    display: flex;
 
+    @media (max-width: 850px) {
+        flex-direction: column;
+    }
 `
 const StyledButton = styled.button`
     padding: .5em 2em;
     text-align: center;
     font-size: 1rem;
-    margin-left: 1em;
+    margin-left: auto;
     &:hover {
         border-color:green;
     }
@@ -35,10 +39,12 @@ const StyledButton = styled.button`
 const StyledLabel = styled.label`
     padding: .5em;
     font-size: 1rem;
+    white-space: nowrap;
 `
 const StyledInput = styled.input`
     padding: .5em;
     font-size: 1rem;
+    flex: 1;
 `
 
 function AddItem(props) {
@@ -89,11 +95,11 @@ function AddItem(props) {
 
     return (
         <Section>
-            {loading ? <Title>Data is Loading</Title>:<Title>Shopping List for {locationInfo[0].name}</Title>}
+            {loading ? <Title>Data is Loading</Title>:<Title>Location: {locationInfo[0].name}</Title>}
             <SubTitle>Add an Item to the Shopping List:</SubTitle>
             <StyledForm onSubmit={handleAddSubmit}>
                 <StyledLabel>Item Name:</StyledLabel>
-                <StyledInput type="text" placeholder = "Enter Item Name" name="name" value={newItem.name} onChange={handleChange}/>
+                <StyledInput type="text" required placeholder = "Enter Item Name" name="name" value={newItem.name} onChange={handleChange}/>
                 <StyledLabel>Item Category:</StyledLabel>
                 <StyledInput type="text" placeholder = "Enter Item Category" name="category" value={newItem.category} onChange={handleChange}/>
                 <StyledButton>Add</StyledButton>

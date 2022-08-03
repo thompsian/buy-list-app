@@ -30,13 +30,16 @@ const StyledLink = styled(Link)`
     padding: .25em
     margin: 1rem;
     font-size: 1rem;
+    &:hover {
+        text-decoration:underline ;
+    }
 `;
 
 function Header() {
   return (
     <Section>
         <Title>BuyList</Title>
-        <SubTitle>The Simplest Shopping List Web Application</SubTitle>
+        <SubTitle>The Simplest Shopping List</SubTitle>
         <NavBar>
             <StyledLink to="/">Home</StyledLink>
         </NavBar>

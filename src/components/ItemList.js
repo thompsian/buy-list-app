@@ -14,11 +14,13 @@ const ListSection = styled.ul`
     padding-left: 0;
     display: grid;
     grid-gap: 5px;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-auto-rows: 100px;
 `
 const ListItem = styled.li`
-    display:flex;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     border-style: solid;
     border-width: 1px;
     border-radius: 15px; 
@@ -28,17 +30,23 @@ const StyledButton = styled.button`
     padding: 0.15em 0.6em;
     text-align: center;
     font-size: 1em;
-    margin: 1em;
-    margin-left: auto;
+    margin: 0 auto;
     &:hover {
-        border-color: red;
-     }
+        cursor: pointer;
+    }
 `
 
-const StyledParagraph = styled.p`
-    flex: 1;
-    padding: 0.5em;
-    font-size: 1em;
+const StyledName = styled.p`
+    padding: .2em;
+    margin: 0 auto;
+    font-size: 1rem;
+    text-align: center;
+`
+
+const StyledCategory = styled.p`
+    padding: .2em;
+    margin: 0 auto;
+    font-size: 0.8rem;
     text-align: center;
 `
 
@@ -79,8 +87,8 @@ function ItemList() {
             <ListSection>
                 {loading ? <ListItem>Data is Loading</ListItem> : items.map(itemList => ( itemList.location_id == locationID && 
                     <ListItem key = {itemList.id}>
-                        <StyledParagraph>{itemList.name}</StyledParagraph>
-                        <StyledParagraph>{itemList.category}</StyledParagraph>
+                        <StyledName>{itemList.name}</StyledName>
+                        <StyledCategory>{itemList.category}</StyledCategory>
                         <StyledButton onClick={(e) => handleDeleteItem(itemList.id, e)}>Remove</StyledButton>
                     </ListItem>
                 ))}
