@@ -15,8 +15,9 @@
 ### Branches are the planned stages of development:
 
 1. mvp - Can add / remove shopping locations and items for each location. Lightweight, simple styling with functionallity as top priority.
-2. Testing - Implement Jest testing. Begin using Test Driven Development refactor pattern.
+2. Testing - Implement Jest testing. 
 3. Styled - Fully responsive design. Polished user experience.
-4. Authentication - Users must be authenticated prior to using application. Protected routes.
-5. Diagnostic - Comprehensive Error handling , diagnostic tools, and Progressive Web Application features enabled.
-6. Feature - Add additional input options and display options. 
+4. Error - Comprehesive error handling. Users can no longer break the site experience.
+5. Authentication - Users must be authenticated prior to using application. Protected routes.
+6. Diagnostic - Diagnostic tools and Progressive Web Application features enabled.
+7. Feature - Add additional input options and display options. 
