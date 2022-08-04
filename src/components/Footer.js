@@ -3,7 +3,6 @@ import styled from 'styled-components'
 
 const Section = styled.div`
     background-color: #ccccb3;
-    border-radius: 15px; 
     padding: 0.33em;
 `
 const SubTitle = styled.h6`

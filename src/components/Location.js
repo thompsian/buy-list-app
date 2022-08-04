@@ -39,6 +39,7 @@ const StyledLink = styled(Link)`
     padding .25em 1em;
     margin-right: auto;
     font-size: 1rem;
+    white-space: nowrap;
     &:hover {
         background: #ccccb3;
      }
@@ -56,6 +57,7 @@ const DeleteButton = styled.button`
        cursor: pointer;
     }
     margin-left: auto;
+    white-space: nowrap;
 `
 
 function Location(props) {
