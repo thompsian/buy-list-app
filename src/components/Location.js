@@ -84,6 +84,11 @@ function Location(props) {
 
     const handleDelete = (id) => {
         fetch(`${addressAPI}/locations/${id}`, { method: 'DELETE' })
+        .then(res => {
+            if(!res.ok){
+                throw alert('Items still in this Shopping list. Must be empty to delete the Location')
+            }
+        })
         .then(() => setDeleteCount(deleteCount + 1))
     }
 
