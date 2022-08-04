@@ -21,6 +21,7 @@ const ListItem = styled.li`
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    background-color: #f5f5f0;
     border-style: solid;
     border-width: 1px;
     border-radius: 15px; 

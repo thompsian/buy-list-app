@@ -20,7 +20,6 @@ const NavBar = styled.ul`
 `
 const Section = styled.div`
     background-color: #ccccb3;
-    border-radius: 15px; 
     margin: 0 auto;
     padding: 1em;
 `
