@@ -1,6 +1,6 @@
 import React, { useState , useEffect, useContext } from 'react'
 import { useParams } from 'react-router-dom'
-import {ItemContext} from '../contexts/itemContext'
+import {DataContext} from '../contexts/dataContext'
 import styled from 'styled-components'
 
 const Section = styled.div`
@@ -51,7 +51,7 @@ function AddItem(props) {
     const { locationID } = useParams()
     const [locationInfo, setLocationInfo] = useState()
     const [loading, setLoading] = useState(true)
-    const { addItemCount, addCount } = useContext(ItemContext)
+    const { addItemCount, addCount } = useContext(DataContext)
     const addressAPI = process.env.REACT_APP_BASE_API_URL
 
     const [newItem, setNewItem] = useState({

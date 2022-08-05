@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useContext} from 'react'
 import { Link } from 'react-router-dom'
-import {LocationContext} from '../contexts/locationContext'
+import {DataContext} from '../contexts/dataContext'
 import styled from 'styled-components'
 
 const Section = styled.div`
@@ -64,7 +64,7 @@ function Location(props) {
     const [location, setLocation] = useState([])
     const [loading, setLoading] = useState(true)
     const [deleteCount, setDeleteCount] = useState(0)
-    const {addLocationCount} = useContext(LocationContext)
+    const {addLocationCount} = useContext(DataContext)
     const addressAPI = process.env.REACT_APP_BASE_API_URL
     
     useEffect(() => {

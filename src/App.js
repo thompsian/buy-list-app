@@ -4,10 +4,12 @@ import Footer from './components/Footer'
 import Main from './pages/Main'
 import List from './pages/List'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import {DataContextProvider} from './contexts/dataContext'
 
 function App() {
     return (
         <Router>
+            <DataContextProvider>
             <div className="App">
                 <Header />
                 <div className="content">
@@ -18,6 +20,7 @@ function App() {
                 </div>
                 <Footer />
             </div>
+            </DataContextProvider>
         </Router>
     );
 }
