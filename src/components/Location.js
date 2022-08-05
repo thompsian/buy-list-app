@@ -105,7 +105,19 @@ function Location(props) {
     }
 
     function handleSort(){
-
+        console.log(sortingType)
+        if (sortingType === "0") {
+            const byID = [...location].sort((a,b) => a.id - b.id)
+            setLocation(byID)
+        }
+        else if (sortingType === "1") {
+            const aToZ = [...location].sort((a,b) => a.name > b.name ? 1 : -1)
+            setLocation(aToZ)
+        }
+        else if (sortingType === "2") {
+            const ZtoA = [...location].sort((a,b) => a.name > b.name ? -1 : 1)
+            setLocation(ZtoA)
+        }
     }
 
     return (
