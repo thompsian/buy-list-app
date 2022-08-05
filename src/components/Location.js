@@ -3,27 +3,43 @@ import { Link } from 'react-router-dom'
 import {DataContext} from '../contexts/dataContext'
 import styled from 'styled-components'
 
-const TitleSection = styled.div`
-
-`
-
-const SortSelect = styled.select`
-
-`
-
-const SortButton = styled.button`
-
-`
-
 const Section = styled.div`
-    border-radius: 15px; 
     margin: 0 auto;
     padding: 1em;
 `
+
+const TitleSection = styled.div`
+    display: flex;
+    align-items: center;
+`
+
+const SortSelect = styled.select`
+    flex: 1;
+    font-size: 1rem;
+    text-align: center;
+    margin-right: 1em;
+    padding: .5em 2em;
+
+    &:hover {
+        cursor: pointer;
+    }
+`
+
+const SortButton = styled.button`
+    font-size: 1rem;
+    padding: .5em 2em;
+    text-align: center;
+    margin-left: auto;
+
+    &:hover {
+        cursor: pointer;
+    }
+`
 const Title = styled.h2`
     font-size: 1.5rem;
-    margin-top: 0;
+    margin: 0;
     text-align: left;
+    padding 0 1em 0 0;
 `
 
 const ListSection = styled.ul`
@@ -122,7 +138,7 @@ function Location() {
     return (
         <Section>
             <TitleSection>
-                <Title>Shopping Locations:</Title>
+                <Title>Locations:</Title>
                 <SortSelect id="Sorting Type" value={sortingType} onChange={(e) => setSortingType(e.target.value)}>
                     <option value="0">Sort As-Added</option>
                     <option value="1">Sort Alphabetical A-Z</option>
