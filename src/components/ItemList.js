@@ -8,6 +8,17 @@ const Section = styled.div`
     margin: 0 auto;
     padding: 1em;
 `
+const SortSection = styled.div`
+
+`
+
+const SortSelect = styled.select`
+
+`
+
+const SortButton = styled.button`
+
+`
 
 const ListSection = styled.ul`
     list-style-type: none;
@@ -55,6 +66,7 @@ function ItemList() {
     const { locationID } = useParams()
     const [loading, setLoading] = useState(true)
     const [deleteCount, setDeleteCount] = useState(0)
+    const [sortingType, setSortingType] = useState(0)
     const {addItemCount} = useContext(DataContext)
     const addressAPI = process.env.REACT_APP_BASE_API_URL
 
@@ -82,9 +94,42 @@ function ItemList() {
         fetch(`${addressAPI}/items/${id}`, { method: 'DELETE' })
         .then(() => setDeleteCount(deleteCount + 1))
     }
+
+    function handleSort(){
+        if (sortingType === "0") {
+            const byID = [...items].sort((a,b) => a.id - b.id)
+            setItems(byID)
+        }
+        else if (sortingType === "1") {
+            const nameAtoZ = [...items].sort((a,b) => a.name > b.name ? 1 : -1)
+            setItems(nameAtoZ)
+        }
+        else if (sortingType === "2") {
+            const nameZtoA = [...items].sort((a,b) => a.name > b.name ? -1 : 1)
+            setItems(nameZtoA)
+        }
+        else if (sortingType === "3") {
+            const CategoryAtoZ = [...items].sort((a,b) => a.category > b.category ? 1 : -1)
+            setItems(CategoryAtoZ)
+        }
+        else if (sortingType === "4") {
+            const CategoryZtoA = [...items].sort((a,b) => a.category > b.category ? -1 : 1)
+            setItems(CategoryZtoA)
+        }
+    }
     
     return (
         <Section>
+            <SortSection>
+                <SortSelect id="Sorting Type" value={sortingType} onChange={(e) => setSortingType(e.target.value)}>
+                    <option value="0">Sort As-Added</option>
+                    <option value="1">Sort Item Name A-Z</option>
+                    <option value="2">Sort Item Name Z-A</option>
+                    <option value="3">Sort Item Category A-Z</option>
+                    <option value="4">Sort Item Category Z-A</option>
+                </SortSelect>
+                <SortButton onClick={(e) => handleSort()}>Sort</SortButton>
+            </SortSection>
             <ListSection>
                 {loading ? <ListItem>Data is Loading</ListItem> : items.map(itemList => ( itemList.location_id == locationID && 
                     <ListItem key = {itemList.id}>

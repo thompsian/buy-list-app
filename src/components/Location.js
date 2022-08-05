@@ -72,7 +72,7 @@ const DeleteButton = styled.button`
     white-space: nowrap;
 `
 
-function Location(props) {
+function Location() {
     const [location, setLocation] = useState([])
     const [loading, setLoading] = useState(true)
     const [deleteCount, setDeleteCount] = useState(0)
@@ -105,7 +105,6 @@ function Location(props) {
     }
 
     function handleSort(){
-        console.log(sortingType)
         if (sortingType === "0") {
             const byID = [...location].sort((a,b) => a.id - b.id)
             setLocation(byID)
