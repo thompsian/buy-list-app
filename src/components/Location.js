@@ -3,6 +3,18 @@ import { Link } from 'react-router-dom'
 import {DataContext} from '../contexts/dataContext'
 import styled from 'styled-components'
 
+const TitleSection = styled.div`
+
+`
+
+const SortSelect = styled.select`
+
+`
+
+const SortButton = styled.button`
+
+`
+
 const Section = styled.div`
     border-radius: 15px; 
     margin: 0 auto;
@@ -64,6 +76,7 @@ function Location(props) {
     const [location, setLocation] = useState([])
     const [loading, setLoading] = useState(true)
     const [deleteCount, setDeleteCount] = useState(0)
+    const [sortingType, setSortingType] = useState(0)
     const {addLocationCount} = useContext(DataContext)
     const addressAPI = process.env.REACT_APP_BASE_API_URL
     
@@ -71,15 +84,13 @@ function Location(props) {
         getAllLocations()
     },[deleteCount, addLocationCount])
 
-
     function getAllLocations(){
         setLoading(true)
-
         fetch(`${addressAPI}/locations`)
         .then(res => res.json()
         .then(data => setLocation(data)))
         .catch(errors => console.log("Error fetching all Locations", errors))
-        .finally(() => {setLoading(false)}) 
+        .finally(() => {setLoading(false)})   
     }
 
     const handleDelete = (id) => {
@@ -90,12 +101,24 @@ function Location(props) {
             }
         })
         .then(() => setDeleteCount(deleteCount + 1))
+        .catch(errors => console.log("Error deleting Location", errors))
     }
 
+    function handleSort(){
+
+    }
 
     return (
         <Section>
-            <Title>Shopping Locations:</Title>
+            <TitleSection>
+                <Title>Shopping Locations:</Title>
+                <SortSelect id="Sorting Type" value={sortingType} onChange={(e) => setSortingType(e.target.value)}>
+                    <option value="0">Sort As-Added</option>
+                    <option value="1">Sort Alphabetical A-Z</option>
+                    <option value="2">Sort Alphabetical Z-A</option>
+                </SortSelect>
+                <SortButton onClick={(e) => handleSort()}>Sort</SortButton>
+            </TitleSection>
             <ListSection>
                 {loading ? <ListItem>Data is Loading</ListItem> : location.map(locationItem => (
                     <ListItem key = {locationItem.id}>
