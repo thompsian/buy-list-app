@@ -12,6 +12,10 @@ const SortSection = styled.div`
     display: flex;
     align-items: center;
     margin: 0 auto;
+
+    @media (max-width: 650px) {
+        flex-direction: column;
+    }
 `
 const Title = styled.h3`
     font-size: 1.2rem;
