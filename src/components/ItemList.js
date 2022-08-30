@@ -1,12 +1,46 @@
 import React, {useState, useEffect, useContext} from 'react'
 import { useParams } from 'react-router-dom'
-import {ItemContext} from '../contexts/itemContext'
+import {DataContext} from '../contexts/dataContext'
 import styled from 'styled-components'
 
 const Section = styled.div`
     border-radius: 15px; 
     margin: 0 auto;
     padding: 1em;
+`
+const SortSection = styled.div`
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+`
+const Title = styled.h3`
+    font-size: 1.2rem;
+    margin: 0;
+    text-align: left;
+    padding 0 1em 0 0;
+`
+
+const SortSelect = styled.select`
+    flex: 1;
+    font-size: 1rem;
+    text-align: center;
+    margin-right: 1em;
+    padding: .5em 2em;
+
+    &:hover {
+        cursor: pointer;
+    }
+`
+
+const SortButton = styled.button`
+    font-size: 1rem;
+    padding: .5em 2em;
+    text-align: center;
+    margin-left: auto;
+
+    &:hover {
+        cursor: pointer;
+    }
 `
 
 const ListSection = styled.ul`
@@ -55,7 +89,8 @@ function ItemList() {
     const { locationID } = useParams()
     const [loading, setLoading] = useState(true)
     const [deleteCount, setDeleteCount] = useState(0)
-    const {addItemCount} = useContext(ItemContext)
+    const [sortingType, setSortingType] = useState(0)
+    const {addItemCount} = useContext(DataContext)
     const addressAPI = process.env.REACT_APP_BASE_API_URL
 
     const [items, setItems] = useState({
@@ -82,9 +117,43 @@ function ItemList() {
         fetch(`${addressAPI}/items/${id}`, { method: 'DELETE' })
         .then(() => setDeleteCount(deleteCount + 1))
     }
+
+    function handleSort(){
+        if (sortingType === "0") {
+            const byID = [...items].sort((a,b) => a.id - b.id)
+            setItems(byID)
+        }
+        else if (sortingType === "1") {
+            const nameAtoZ = [...items].sort((a,b) => a.name > b.name ? 1 : -1)
+            setItems(nameAtoZ)
+        }
+        else if (sortingType === "2") {
+            const nameZtoA = [...items].sort((a,b) => a.name > b.name ? -1 : 1)
+            setItems(nameZtoA)
+        }
+        else if (sortingType === "3") {
+            const CategoryAtoZ = [...items].sort((a,b) => a.category > b.category ? 1 : -1)
+            setItems(CategoryAtoZ)
+        }
+        else if (sortingType === "4") {
+            const CategoryZtoA = [...items].sort((a,b) => a.category > b.category ? -1 : 1)
+            setItems(CategoryZtoA)
+        }
+    }
     
     return (
         <Section>
+            <SortSection>
+                <Title>Shopping List:</Title>
+                <SortSelect id="Sorting Type" value={sortingType} onChange={(e) => setSortingType(e.target.value)}>
+                    <option value="0">Sort As-Added</option>
+                    <option value="1">Sort Item Name A-Z</option>
+                    <option value="2">Sort Item Name Z-A</option>
+                    <option value="3">Sort Item Category A-Z</option>
+                    <option value="4">Sort Item Category Z-A</option>
+                </SortSelect>
+                <SortButton onClick={(e) => handleSort()}>Sort</SortButton>
+            </SortSection>
             <ListSection>
                 {loading ? <ListItem>Data is Loading</ListItem> : items.map(itemList => ( itemList.location_id == locationID && 
                     <ListItem key = {itemList.id}>

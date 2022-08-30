@@ -27,6 +27,7 @@ const StyledLink = styled.a`
     text-align: center;
     padding: .15em .75em;
     text-decoration: none;
+    letter-spacing: 1px;
     &:hover {
         text-decoration: underline;
     }
