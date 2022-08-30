@@ -23,7 +23,7 @@ const SubTitle = styled.h5`
 const StyledForm = styled.form`
     display: flex;
 
-    @media (max-width: 850px) {
+    @media (max-width: 950px) {
         flex-direction: column;
     }
 `
@@ -33,7 +33,7 @@ const StyledButton = styled.button`
     font-size: 1rem;
     margin-left: auto;
     &:hover {
-        border-color:green;
+        cursor: pointer;
     }
 `
 const StyledLabel = styled.label`

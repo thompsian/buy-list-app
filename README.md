@@ -18,6 +18,7 @@
 2. Testing - Implement Jest testing. 
 3. Styled - Fully responsive design. Polished user experience.
 4. Edge - Edge cases handled. Comprehesive error handling. Accessibility features verified. Users can no longer break the site experience.
-5. Authentication - Users must be authenticated prior to using application. Protected routes.
-6. Diagnostic - Diagnostic tools and Progressive Web Application features enabled.
-7. Feature - Add additional input options and display options. 
+5. Feature - Add additional input options and display options. 
+6. Authentication - Users must be authenticated prior to using application. Protected routes.
+7. Diagnostic - Diagnostic tools and Progressive Web Application features enabled.
+8. Extras - Nice to have features.

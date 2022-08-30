@@ -12,6 +12,10 @@ const TitleSection = styled.div`
     display: flex;
     align-items: center;
     margin: 0 auto;
+
+    @media (max-width: 650px) {
+        flex-direction: column;
+    }
 `
 
 const SortSelect = styled.select`
@@ -154,7 +158,7 @@ function Location() {
                             <h5>Shop Here</h5>
                         </StyledLink>
                         <LocationName>{locationItem.name}</LocationName>
-                        <DeleteButton onClick={(e) => handleDelete(locationItem.id, e)}>Delete Location</DeleteButton>
+                        <DeleteButton onClick={(e) => handleDelete(locationItem.id, e)}>Remove</DeleteButton>
                     </ListItem>
                 ))}
             </ListSection>
