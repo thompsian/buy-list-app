@@ -15,6 +15,7 @@ const TitleSection = styled.div`
 
     @media (max-width: 650px) {
         flex-direction: column;
+        align-items: stretch;
     }
 `
 
@@ -28,6 +29,9 @@ const SortSelect = styled.select`
     &:hover {
         cursor: pointer;
     }
+
+    @media (max-width: 650px) {
+        margin-right: 0;
 `
 
 const SortButton = styled.button`

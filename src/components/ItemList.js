@@ -15,6 +15,7 @@ const SortSection = styled.div`
 
     @media (max-width: 650px) {
         flex-direction: column;
+        align-items: stretch;
     }
 `
 const Title = styled.h3`
@@ -33,6 +34,10 @@ const SortSelect = styled.select`
 
     &:hover {
         cursor: pointer;
+    }
+    
+    @media (max-width: 650px) {
+        margin-right: 0;
     }
 `
 
