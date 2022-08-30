@@ -11,6 +11,9 @@ const Section = styled.div`
 
 const AddForm = styled.form`
     display: flex;
+    @media (max-width: 650px) {
+        flex-direction: column;
+    }
 `
 
 const AddLabel = styled.label`

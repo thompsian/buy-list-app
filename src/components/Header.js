@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import styled from 'styled-components'
 
 const Title = styled.h1`
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     margin-top: .25em;
     text-align:center;
 `
