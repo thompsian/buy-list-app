@@ -11,6 +11,7 @@ const Section = styled.div`
 const TitleSection = styled.div`
     display: flex;
     align-items: center;
+    margin: 0 auto;
 `
 
 const SortSelect = styled.select`

@@ -9,15 +9,38 @@ const Section = styled.div`
     padding: 1em;
 `
 const SortSection = styled.div`
-
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+`
+const Title = styled.h3`
+    font-size: 1.2rem;
+    margin: 0;
+    text-align: left;
+    padding 0 1em 0 0;
 `
 
 const SortSelect = styled.select`
+    flex: 1;
+    font-size: 1rem;
+    text-align: center;
+    margin-right: 1em;
+    padding: .5em 2em;
 
+    &:hover {
+        cursor: pointer;
+    }
 `
 
 const SortButton = styled.button`
+    font-size: 1rem;
+    padding: .5em 2em;
+    text-align: center;
+    margin-left: auto;
 
+    &:hover {
+        cursor: pointer;
+    }
 `
 
 const ListSection = styled.ul`
@@ -121,6 +144,7 @@ function ItemList() {
     return (
         <Section>
             <SortSection>
+                <Title>Shopping List:</Title>
                 <SortSelect id="Sorting Type" value={sortingType} onChange={(e) => setSortingType(e.target.value)}>
                     <option value="0">Sort As-Added</option>
                     <option value="1">Sort Item Name A-Z</option>
