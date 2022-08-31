@@ -9,7 +9,7 @@ const Title = styled.h1`
 `
 const SubTitle = styled.h6`
     font-size: 1.25rem;
-    text-align:center;
+    text-align: center;
     margin: 0 auto;
 `
 const NavBar = styled.ul`
@@ -29,8 +29,8 @@ const StyledLink = styled(Link)`
     padding: .25em
     margin: 1rem;
     font-size: 1rem;
-    &:hover {
-        text-decoration:underline ;
+    &:hover &:focus {
+        text-decoration: underline;
     }
 `;
 
@@ -39,8 +39,8 @@ function Header() {
     <Section>
         <Title>BuyList</Title>
         <SubTitle>The Simplest Shopping List</SubTitle>
-        <NavBar>
-            <StyledLink to="/">Home</StyledLink>
+        <NavBar aria-label="Navigation List">
+            <StyledLink aria-label="Return to Locations Home Page" to="/">Home</StyledLink>
         </NavBar>
     </Section>
   );
