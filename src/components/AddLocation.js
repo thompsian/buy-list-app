@@ -59,15 +59,17 @@ function AddLocation(props) {
 
     return (
         <Section>
-            <AddForm onSubmit={handleSubmit}>
-                <AddLabel>Add A New Location:</AddLabel>
-                <AddInput type="text" 
+            <AddForm aria-label="Add Location Form" onSubmit={handleSubmit}>
+                <AddLabel htmlFor="addlocation">Add A New Location:</AddLabel>
+                <AddInput 
+                    type="text" 
+                    id="addlocation"
                     required
                     placeholder="Enter Location Name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                 />
-                <AddButton>Add</AddButton>
+                <AddButton aria-label="Submit the Add Location Form">Add</AddButton>
             </AddForm>
         </Section>
     );
