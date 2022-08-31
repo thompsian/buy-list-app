@@ -162,7 +162,7 @@ function Location() {
                             <h5>Shop Here</h5>
                         </StyledLink>
                         <LocationName>{locationItem.name}</LocationName>
-                        <DeleteButton onClick={(e) => handleDelete(locationItem.id, e)} onKeyDown={(e) => handleDelete(locationItem.id, e)}>Remove</DeleteButton>
+                        <DeleteButton onClick={(e) => handleDelete(locationItem.id, e)}>Remove</DeleteButton>
                     </ListItem>
                 ))}
             </ListSection>

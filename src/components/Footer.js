@@ -31,6 +31,9 @@ const StyledLink = styled.a`
     &:hover {
         text-decoration: underline;
     }
+    &:focus {
+        text-decoration: underline;
+    }
 `
 
 function Footer() {

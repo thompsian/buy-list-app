@@ -168,7 +168,7 @@ function ItemList() {
                     <ListItem key = {itemList.id}>
                         <StyledName>{itemList.name}</StyledName>
                         <StyledCategory>{itemList.category}</StyledCategory>
-                        <StyledButton onClick={(e) => handleDeleteItem(itemList.id, e)} onKeyDown={(e) => handleDeleteItem(itemList.id, e)}>Remove</StyledButton>
+                        <StyledButton onClick={(e) => handleDeleteItem(itemList.id, e)}>Remove</StyledButton>
                     </ListItem>
                 ))}
             </ListSection>
