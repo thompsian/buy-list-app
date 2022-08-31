@@ -5,8 +5,8 @@ import AddLocation from '../components/AddLocation'
 function Main() {
   return (
       <>
-          <AddLocation />
-          <Location />
+          < AddLocation />
+          < Location />
       </>
   );
 }

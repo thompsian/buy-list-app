@@ -1,31 +1,31 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import AddLocation from '../components/AddLocation';
-import {LocationContext} from '../contexts/locationContext';
+import { DataContext } from '../contexts/dataContext';
 
 describe('AddLocation Component', () => {
     test('should contain the text add a new location', () => {
-        render(<LocationContext.Provider value={0}>
+        render(<DataContext.Provider value={0}>
             <AddLocation />
-        </LocationContext.Provider>);
+        </DataContext.Provider>);
 
         const titleName = screen.getByText(/add a new location/i);
         expect(titleName).toBeInTheDocument();
     });
 
     test('should render input element', async () => {
-        render(<LocationContext.Provider value={0}>
+        render(<DataContext.Provider value={0}>
             <AddLocation />
-        </LocationContext.Provider>);
+        </DataContext.Provider>);
 
         const inputElement = screen.getByPlaceholderText(/enter location name/i);
         expect(inputElement).toBeInTheDocument();
     });
 
     test('should be able to type into input', async () => {
-        render(<LocationContext.Provider value={0}>
+        render(<DataContext.Provider value={0}>
             <AddLocation />
-        </LocationContext.Provider>);
+        </DataContext.Provider>);
 
         const inputElement = screen.getByPlaceholderText(/enter location name/i);
         fireEvent.change(inputElement, { target: {value: "Location 1"} });
@@ -33,9 +33,9 @@ describe('AddLocation Component', () => {
     });
 
     test('should reset input box to empty after submit', async () => {
-        render(<LocationContext.Provider value={0}>
+        render(<DataContext.Provider value={0}>
             <AddLocation />
-        </LocationContext.Provider>);
+        </DataContext.Provider>);
 
         const inputElement = screen.getByPlaceholderText(/enter location name/i);
         const buttonElement = screen.getByRole("button");

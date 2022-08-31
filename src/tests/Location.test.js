@@ -1,15 +1,15 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Location from '../components/Location';
-import {LocationContext} from '../contexts/locationContext'
+import { DataContext } from '../contexts/dataContext'
 
 describe('Location Component', () => {
     test('should contain the text shopping locations', () => {
-        render(<LocationContext.Provider value={0}>
+        render(<DataContext.Provider value={0}>
             <Location />
-        </LocationContext.Provider>);
+        </DataContext.Provider>);
 
-        const titleName = screen.getByText(/shopping locations/i);
+        const titleName = screen.getByText(/locations/i);
         expect(titleName).toBeInTheDocument();
     });
 });

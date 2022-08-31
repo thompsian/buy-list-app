@@ -1,6 +1,6 @@
 import React, { useState , useEffect, useContext } from 'react'
 import { useParams } from 'react-router-dom'
-import {DataContext} from '../contexts/dataContext'
+import { DataContext } from '../contexts/dataContext'
 import styled from 'styled-components'
 
 const Section = styled.div`
@@ -50,7 +50,7 @@ const StyledInput = styled.input`
 function AddItem(props) {
     const { locationID } = useParams()
     const [locationInfo, setLocationInfo] = useState()
-    const [loading, setLoading] = useState(true)
+    const [isLoading, setIsLoading] = useState(true)
     const { addItemCount, addCount } = useContext(DataContext)
     const addressAPI = process.env.REACT_APP_BASE_API_URL
 
@@ -65,13 +65,13 @@ function AddItem(props) {
     },[])
 
     function getLocationInfo(){
-        setLoading(true)
+        setIsLoading(true)
 
         fetch(`${addressAPI}/locations/${locationID}`)
         .then(res => res.json()
         .then(data => setLocationInfo(data)))
         .catch(errors => console.log("Error fetching location information", errors))
-        .finally(() => {setLoading(false)}) 
+        .finally(() => {setIsLoading(false)}) 
     }
 
     const handleChange = (e) => {
@@ -95,7 +95,7 @@ function AddItem(props) {
 
     return (
         <Section>
-            {loading ? <Title>Data is Loading</Title>:<Title>Location: {locationInfo[0].name}</Title>}
+            {isLoading ? <Title>Data is Loading</Title>:<Title>Location: {locationInfo[0].name}</Title>}
             <SubTitle>Add an Item to the Shopping List:</SubTitle>
             <StyledForm onSubmit={handleAddSubmit}>
                 <StyledLabel>Item Name:</StyledLabel>

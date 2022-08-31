@@ -1,5 +1,5 @@
-import React, {useState , useContext} from 'react'
-import {DataContext} from '../contexts/dataContext'
+import React, { useState , useContext } from 'react'
+import { DataContext } from '../contexts/dataContext'
 import styled from 'styled-components'
 
 const Section = styled.div`
@@ -40,7 +40,7 @@ const AddButton = styled.button`
 
 function AddLocation(props) {
     const [name, setName] = useState("")
-    const {addLocationCount, addCount} = useContext(DataContext)
+    const { addLocationCount, addCount } = useContext(DataContext)
     const addressAPI = process.env.REACT_APP_BASE_API_URL
 
     const handleSubmit = (e) => {

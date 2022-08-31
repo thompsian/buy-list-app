@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useContext} from 'react'
 import { useParams } from 'react-router-dom'
-import {DataContext} from '../contexts/dataContext'
+import { DataContext } from '../contexts/dataContext'
 import styled from 'styled-components'
 
 const Section = styled.div`
@@ -15,6 +15,7 @@ const SortSection = styled.div`
 
     @media (max-width: 650px) {
         flex-direction: column;
+        align-items: stretch;
     }
 `
 const Title = styled.h3`
@@ -33,6 +34,10 @@ const SortSelect = styled.select`
 
     &:hover {
         cursor: pointer;
+    }
+    
+    @media (max-width: 650px) {
+        margin-right: 0;
     }
 `
 
@@ -91,10 +96,10 @@ const StyledCategory = styled.p`
 
 function ItemList() {
     const { locationID } = useParams()
-    const [loading, setLoading] = useState(true)
+    const [isLoading, setIsLoading] = useState(true)
     const [deleteCount, setDeleteCount] = useState(0)
     const [sortingType, setSortingType] = useState(0)
-    const {addItemCount} = useContext(DataContext)
+    const { addItemCount } = useContext(DataContext)
     const addressAPI = process.env.REACT_APP_BASE_API_URL
 
     const [items, setItems] = useState({
@@ -108,13 +113,13 @@ function ItemList() {
     },[deleteCount, addItemCount])
 
     function getLocationItems(){
-        setLoading(true)
+        setIsLoading(true)
 
         fetch(`${addressAPI}/items/`)
         .then(res => res.json()
         .then(data => setItems(data)))
         .catch(errors => console.log("Error fetching all Items", errors))
-        .finally(() => {setLoading(false)}) 
+        .finally(() => {setIsLoading(false)}) 
     }
 
     const handleDeleteItem = (id) => {
@@ -159,7 +164,7 @@ function ItemList() {
                 <SortButton onClick={(e) => handleSort()}>Sort</SortButton>
             </SortSection>
             <ListSection>
-                {loading ? <ListItem>Data is Loading</ListItem> : items.map(itemList => ( itemList.location_id == locationID && 
+                {isLoading ? <ListItem>Data is Loading</ListItem> : items.map(itemList => ( itemList.location_id == locationID && 
                     <ListItem key = {itemList.id}>
                         <StyledName>{itemList.name}</StyledName>
                         <StyledCategory>{itemList.category}</StyledCategory>

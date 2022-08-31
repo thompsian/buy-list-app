@@ -1,6 +1,6 @@
-import React, {useState, useEffect, useContext} from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom'
-import {DataContext} from '../contexts/dataContext'
+import { DataContext } from '../contexts/dataContext'
 import styled from 'styled-components'
 
 const Section = styled.div`
@@ -15,6 +15,7 @@ const TitleSection = styled.div`
 
     @media (max-width: 650px) {
         flex-direction: column;
+        align-items: stretch;
     }
 `
 
@@ -28,6 +29,9 @@ const SortSelect = styled.select`
     &:hover {
         cursor: pointer;
     }
+
+    @media (max-width: 650px) {
+        margin-right: 0;
 `
 
 const SortButton = styled.button`
@@ -95,7 +99,7 @@ const DeleteButton = styled.button`
 
 function Location() {
     const [location, setLocation] = useState([])
-    const [loading, setLoading] = useState(true)
+    const [isLoading, setIsLoading] = useState(true)
     const [deleteCount, setDeleteCount] = useState(0)
     const [sortingType, setSortingType] = useState(0)
     const {addLocationCount} = useContext(DataContext)
@@ -106,12 +110,12 @@ function Location() {
     },[deleteCount, addLocationCount])
 
     function getAllLocations(){
-        setLoading(true)
+        setIsLoading(true)
         fetch(`${addressAPI}/locations`)
         .then(res => res.json()
         .then(data => setLocation(data)))
         .catch(errors => console.log("Error fetching all Locations", errors))
-        .finally(() => {setLoading(false)})   
+        .finally(() => {setIsLoading(false)})   
     }
 
     const handleDelete = (id) => {
@@ -152,7 +156,7 @@ function Location() {
                 <SortButton onClick={(e) => handleSort()}>Sort</SortButton>
             </TitleSection>
             <ListSection>
-                {loading ? <ListItem>Data is Loading</ListItem> : location.map(locationItem => (
+                {isLoading ? <ListItem>Data is Loading</ListItem> : location.map(locationItem => (
                     <ListItem key = {locationItem.id}>
                         <StyledLink to={`/lists/${locationItem.id}`}>
                             <h5>Shop Here</h5>
