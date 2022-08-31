@@ -1,13 +1,13 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import ItemList from '../components/ItemList';
-import {ItemContext} from '../contexts/itemContext'
+import { DataContext } from '../contexts/dataContext'
 
 describe('ItemList Component', () => {
     test('should render a single list', () => {
-        render(<ItemContext.Provider value={0}>
+        render(<DataContext.Provider value={0}>
             <ItemList />
-        </ItemContext.Provider>);
+        </DataContext.Provider>);
 
         const titleElements = screen.getAllByRole("list");
         expect(titleElements.length).toBe(1);
