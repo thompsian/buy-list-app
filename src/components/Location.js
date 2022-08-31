@@ -153,7 +153,7 @@ function Location() {
                     <option value="1">Sort Alphabetical A-Z</option>
                     <option value="2">Sort Alphabetical Z-A</option>
                 </SortSelect>
-                <SortButton onClick={(e) => handleSort()}>Sort</SortButton>
+                <SortButton onClick={(e) => handleSort()} onKeyDown={(e) => handleSort()}>Sort</SortButton>
             </TitleSection>
             <ListSection aria-label="Location List">
                 {isLoading ? <ListItem>Data is Loading</ListItem> : location.map(locationItem => (
@@ -162,7 +162,7 @@ function Location() {
                             <h5>Shop Here</h5>
                         </StyledLink>
                         <LocationName>{locationItem.name}</LocationName>
-                        <DeleteButton onClick={(e) => handleDelete(locationItem.id, e)}>Remove</DeleteButton>
+                        <DeleteButton onClick={(e) => handleDelete(locationItem.id, e)} onKeyDown={(e) => handleDelete(locationItem.id, e)}>Remove</DeleteButton>
                     </ListItem>
                 ))}
             </ListSection>

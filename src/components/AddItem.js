@@ -97,12 +97,25 @@ function AddItem(props) {
         <Section>
             {isLoading ? <Title>Data is Loading</Title>:<Title>Location: {locationInfo[0].name}</Title>}
             <SubTitle>Add an Item to the Shopping List:</SubTitle>
-            <StyledForm onSubmit={handleAddSubmit}>
-                <StyledLabel>Item Name:</StyledLabel>
-                <StyledInput type="text" required placeholder = "Enter Item Name" name="name" value={newItem.name} onChange={handleChange}/>
-                <StyledLabel>Item Category:</StyledLabel>
-                <StyledInput type="text" placeholder = "Enter Item Category" name="category" value={newItem.category} onChange={handleChange}/>
-                <StyledButton>Add</StyledButton>
+            <StyledForm aria-label="Add Item Form" onSubmit={handleAddSubmit}>
+                <StyledLabel htmlFor="itemname">Item Name:</StyledLabel>
+                <StyledInput 
+                    type="text" 
+                    id="itemname" 
+                    required 
+                    placeholder = "Enter Item Name" 
+                    name="name" 
+                    value={newItem.name} 
+                    onChange={handleChange}/>
+                <StyledLabel htmlFor="itemcategory">Item Category:</StyledLabel>
+                <StyledInput 
+                    type="text" 
+                    id ="itemcategory" 
+                    placeholder = "Enter Item Category" 
+                    name="category" 
+                    value={newItem.category} 
+                    onChange={handleChange}/>
+                <StyledButton aria-label="Submit the Add Item Form">Add</StyledButton>
             </StyledForm>
         </Section>
     );
