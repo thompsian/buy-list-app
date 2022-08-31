@@ -44,7 +44,7 @@ const SortButton = styled.button`
         cursor: pointer;
     }
 `
-const Title = styled.h2`
+const Label = styled.label`
     font-size: 1.5rem;
     margin: 0;
     text-align: left;
@@ -147,15 +147,15 @@ function Location() {
     return (
         <Section>
             <TitleSection>
-                <Title>Locations:</Title>
-                <SortSelect id="Sorting Type" value={sortingType} onChange={(e) => setSortingType(e.target.value)}>
+                <Label htmlFor="sorttype" aria-label="Sort Locations">Locations:</Label>
+                <SortSelect id="sorttype" value={sortingType} onChange={(e) => setSortingType(e.target.value)}>
                     <option value="0">Sort As-Added</option>
                     <option value="1">Sort Alphabetical A-Z</option>
                     <option value="2">Sort Alphabetical Z-A</option>
                 </SortSelect>
                 <SortButton onClick={(e) => handleSort()}>Sort</SortButton>
             </TitleSection>
-            <ListSection>
+            <ListSection aria-label="Location List">
                 {isLoading ? <ListItem>Data is Loading</ListItem> : location.map(locationItem => (
                     <ListItem key = {locationItem.id}>
                         <StyledLink to={`/lists/${locationItem.id}`}>

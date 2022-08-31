@@ -29,7 +29,10 @@ const StyledLink = styled(Link)`
     padding: .25em
     margin: 1rem;
     font-size: 1rem;
-    &:hover &:focus {
+    &:hover {
+        text-decoration: underline;
+    }
+    &:focus {
         text-decoration: underline;
     }
 `;
