@@ -47,11 +47,11 @@ const StyledInput = styled.input`
     flex: 1;
 `
 
-function AddItem(props) {
+function AddItem() {
     const { locationID } = useParams()
     const [locationInfo, setLocationInfo] = useState()
     const [isLoading, setIsLoading] = useState(true)
-    const { addItemCount, addCount } = useContext(DataContext)
+    const { addCount } = useContext(DataContext)
     const addressAPI = process.env.REACT_APP_BASE_API_URL
 
     const [newItem, setNewItem] = useState({
@@ -75,6 +75,9 @@ function AddItem(props) {
     }
 
     const handleChange = (e) => {
+        if (e.target.value.length === 22){
+            window.alert("Item name and category should not exceed 22 characters each")
+        }
         setNewItem({
             ...newItem,
             [e.target.name]:e.target.value
@@ -97,12 +100,27 @@ function AddItem(props) {
         <Section>
             {isLoading ? <Title>Data is Loading</Title>:<Title>Location: {locationInfo[0].name}</Title>}
             <SubTitle>Add an Item to the Shopping List:</SubTitle>
-            <StyledForm onSubmit={handleAddSubmit}>
-                <StyledLabel>Item Name:</StyledLabel>
-                <StyledInput type="text" required placeholder = "Enter Item Name" name="name" value={newItem.name} onChange={handleChange}/>
-                <StyledLabel>Item Category:</StyledLabel>
-                <StyledInput type="text" placeholder = "Enter Item Category" name="category" value={newItem.category} onChange={handleChange}/>
-                <StyledButton>Add</StyledButton>
+            <StyledForm aria-label="Add Item Form" onSubmit={handleAddSubmit}>
+                <StyledLabel htmlFor="itemname">Item Name:</StyledLabel>
+                <StyledInput 
+                    type="text" 
+                    id="itemname" 
+                    required 
+                    placeholder = "Enter Item Name" 
+                    name="name"
+                    maxLength={22} 
+                    value={newItem.name} 
+                    onChange={handleChange}/>
+                <StyledLabel htmlFor="itemcategory">Item Category:</StyledLabel>
+                <StyledInput 
+                    type="text" 
+                    id ="itemcategory" 
+                    placeholder = "Enter Item Category" 
+                    name="category" 
+                    maxLength={22}
+                    value={newItem.category} 
+                    onChange={handleChange}/>
+                <StyledButton aria-label="Submit the Add Item Form">Add</StyledButton>
             </StyledForm>
         </Section>
     );

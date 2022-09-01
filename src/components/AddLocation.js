@@ -38,20 +38,27 @@ const AddButton = styled.button`
     }
 `
 
-function AddLocation(props) {
+function AddLocation() {
     const [name, setName] = useState("")
-    const { addLocationCount, addCount } = useContext(DataContext)
+    const { addCount } = useContext(DataContext)
     const addressAPI = process.env.REACT_APP_BASE_API_URL
 
+    const handleChange = (e) => {
+        if (e.target.value.length === 18){
+            window.alert("Location name should not exceed 18 characters")
+        }
+        setName(e.target.value)
+    }
+    
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        const locationObject = {name}
+        const locationName = {name}
 
         fetch(`${addressAPI}/locations`, {
             method: 'POST',
             headers: { "Content-Type": "application/json"},
-            body: JSON.stringify(locationObject)
+            body: JSON.stringify(locationName)
         })
         .then(() => setName(""))
         .then(() => addCount())
@@ -59,15 +66,18 @@ function AddLocation(props) {
 
     return (
         <Section>
-            <AddForm onSubmit={handleSubmit}>
-                <AddLabel>Add A New Location:</AddLabel>
-                <AddInput type="text" 
+            <AddForm aria-label="Add Location Form" onSubmit={handleSubmit}>
+                <AddLabel htmlFor="addlocation">Add A New Location:</AddLabel>
+                <AddInput 
+                    type="text" 
+                    id="addlocation"
                     required
                     placeholder="Enter Location Name"
                     value={name}
-                    onChange={(e) => setName(e.target.value)}
+                    maxLength={18}
+                    onChange={handleChange}
                 />
-                <AddButton>Add</AddButton>
+                <AddButton aria-label="Submit the Add Location Form">Add</AddButton>
             </AddForm>
         </Section>
     );

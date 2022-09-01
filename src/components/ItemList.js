@@ -18,7 +18,7 @@ const SortSection = styled.div`
         align-items: stretch;
     }
 `
-const Title = styled.h3`
+const Label = styled.label`
     font-size: 1.2rem;
     margin: 0;
     text-align: left;
@@ -153,17 +153,17 @@ function ItemList() {
     return (
         <Section>
             <SortSection>
-                <Title>Shopping List:</Title>
-                <SortSelect id="Sorting Type" value={sortingType} onChange={(e) => setSortingType(e.target.value)}>
+                <Label htmlFor="sorttype" aria-label="Sort Item List">Shopping List:</Label>
+                <SortSelect id="sorttype" value={sortingType} onChange={(e) => setSortingType(e.target.value)}>
                     <option value="0">Sort As-Added</option>
                     <option value="1">Sort Item Name A-Z</option>
                     <option value="2">Sort Item Name Z-A</option>
                     <option value="3">Sort Item Category A-Z</option>
                     <option value="4">Sort Item Category Z-A</option>
                 </SortSelect>
-                <SortButton onClick={(e) => handleSort()}>Sort</SortButton>
+                <SortButton onClick={(e) => handleSort()} onKeyDown={(e) => handleSort()}>Sort</SortButton>
             </SortSection>
-            <ListSection>
+            <ListSection aria-label="Item List">
                 {isLoading ? <ListItem>Data is Loading</ListItem> : items.map(itemList => ( itemList.location_id == locationID && 
                     <ListItem key = {itemList.id}>
                         <StyledName>{itemList.name}</StyledName>
