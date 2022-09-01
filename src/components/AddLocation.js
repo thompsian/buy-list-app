@@ -40,7 +40,7 @@ const AddButton = styled.button`
 
 function AddLocation() {
     const [name, setName] = useState("")
-    const { addLocationCount, addCount } = useContext(DataContext)
+    const { addCount } = useContext(DataContext)
     const addressAPI = process.env.REACT_APP_BASE_API_URL
 
     const handleChange = (e) => {
