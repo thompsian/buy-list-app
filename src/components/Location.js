@@ -67,6 +67,7 @@ const LocationName = styled.h4`
     text-align: center
     font-size: 3rem;
     font-weight: bold;
+    white-space: nowrap;
 `
 const StyledLink = styled(Link)`  
     color: Black;
@@ -89,7 +90,7 @@ const DeleteButton = styled.button`
     padding: .5em 1.5em;
     text-align: center;
     font-size: 1rem;
-    margin: .5em;
+    margin: .5m;
     &:hover {
        cursor: pointer;
     }

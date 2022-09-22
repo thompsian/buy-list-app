@@ -121,11 +121,7 @@ function ItemList() {
     const { addItemCount } = useContext(DataContext)
     const addressAPI = process.env.REACT_APP_BASE_API_URL
 
-    const [items, setItems] = useState({
-        name:"",
-        category:"",
-        location_id: locationID
-    })
+    const [items, setItems] = useState([])
 
     useEffect(() => {
         getLocationItems()
@@ -141,7 +137,7 @@ function ItemList() {
         .finally(() => {setIsLoading(false)}) 
     }
 
- //   const slicedItems = items.slice(0,noOfItems)
+    const slicedItems = items.slice(0,noOfItems)
 
     const handleLoadMore = () => {
         setNoOfItems(noOfItems + noOfItems)
@@ -174,6 +170,8 @@ function ItemList() {
             setItems(CategoryZtoA)
         }
     }
+    console.log(items, "items")
+    console.log(slicedItems, "slicedItems")
     
     return (
         <Section>
@@ -186,10 +184,10 @@ function ItemList() {
                     <option value="3">Sort Item Category A-Z</option>
                     <option value="4">Sort Item Category Z-A</option>
                 </SortSelect>
-                <SortButton onClick={(e) => handleSort()} onKeyDown={(e) => handleSort()}>Sort</SortButton>
+                <SortButton onClick={(e) => handleSort()}>Sort</SortButton>
             </SortSection>
             <ListSection aria-label="Item List">
-                {isLoading ? <ListItem>Data is Loading</ListItem> : items.map(itemList => ( itemList.location_id == locationID && 
+                {isLoading ? <ListItem>Data is Loading</ListItem> : slicedItems.map(itemList => ( itemList.location_id == locationID && 
                     <ListItem key = {itemList.id}>
                         <StyledName>{itemList.name}</StyledName>
                         <StyledCategory>{itemList.category}</StyledCategory>
@@ -198,7 +196,7 @@ function ItemList() {
                 ))}
             </ListSection>
             <ShowMoreSection>
-                <LoadMoreButton onClick={(e) => handleLoadMore()}>Load More</LoadMoreButton>
+                {items.length > noOfItems ? <LoadMoreButton onClick={(e) => handleLoadMore()}>Load More</LoadMoreButton> :<EmptyLoadMoreDiv></EmptyLoadMoreDiv>}
             </ShowMoreSection>
         </Section>
     );
