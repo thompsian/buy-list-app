@@ -94,9 +94,28 @@ const StyledCategory = styled.p`
     text-align: center;
 `
 
+const ShowMoreSection = styled.div`
+    display: flex;
+    justify-content: center;
+`
+
+const LoadMoreButton = styled.button`
+    padding: .5em 1.5em;
+    text-align: center;
+    font-size: 1rem;
+    margin: .5em;
+    width: 80%;
+    &:hover {
+       cursor: pointer;
+    }
+`
+const EmptyLoadMoreDiv = styled.div`
+`
+
 function ItemList() {
     const { locationID } = useParams()
     const [isLoading, setIsLoading] = useState(true)
+    const [noOfItems, setNoOfItems] = useState(10)
     const [deleteCount, setDeleteCount] = useState(0)
     const [sortingType, setSortingType] = useState(0)
     const { addItemCount } = useContext(DataContext)
@@ -120,6 +139,12 @@ function ItemList() {
         .then(data => setItems(data)))
         .catch(errors => console.log("Error fetching all Items", errors))
         .finally(() => {setIsLoading(false)}) 
+    }
+
+ //   const slicedItems = items.slice(0,noOfItems)
+
+    const handleLoadMore = () => {
+        setNoOfItems(noOfItems + noOfItems)
     }
 
     const handleDeleteItem = (id) => {
@@ -172,6 +197,9 @@ function ItemList() {
                     </ListItem>
                 ))}
             </ListSection>
+            <ShowMoreSection>
+                <LoadMoreButton onClick={(e) => handleLoadMore()}>Load More</LoadMoreButton>
+            </ShowMoreSection>
         </Section>
     );
 }

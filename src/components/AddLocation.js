@@ -72,7 +72,7 @@ function AddLocation() {
                     type="text" 
                     id="addlocation"
                     required
-                    placeholder="Enter Location Name"
+                    placeholder="Enter Location Name (max 18 char)"
                     value={name}
                     maxLength={18}
                     onChange={handleChange}
