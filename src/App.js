@@ -8,7 +8,7 @@ import { DataContextProvider } from './contexts/dataContext'
 import styled from 'styled-components'
 
 const ContainerOuter = styled.div`
-    max-width: 1500px;
+    max-width: 1900px;
     margin-left: auto;
     margin-right: auto;
 `

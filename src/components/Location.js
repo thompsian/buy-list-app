@@ -67,6 +67,7 @@ const LocationName = styled.h4`
     text-align: center
     font-size: 3rem;
     font-weight: bold;
+    white-space: nowrap;
 `
 const StyledLink = styled(Link)`  
     color: Black;
@@ -89,7 +90,7 @@ const DeleteButton = styled.button`
     padding: .5em 1.5em;
     text-align: center;
     font-size: 1rem;
-    margin: .5em;
+    margin: .5m;
     &:hover {
        cursor: pointer;
     }
@@ -97,11 +98,30 @@ const DeleteButton = styled.button`
     white-space: nowrap;
 `
 
+const ShowMoreSection = styled.div`
+    display: flex;
+    justify-content: center;
+`
+
+const LoadMoreButton = styled.button`
+    padding: .5em 1.5em;
+    text-align: center;
+    font-size: 1rem;
+    margin: .5em;
+    width: 80%;
+    &:hover {
+       cursor: pointer;
+    }
+`
+const EmptyLoadMoreDiv = styled.div`
+`
+
 function Location() {
     const [location, setLocation] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const [deleteCount, setDeleteCount] = useState(0)
     const [sortingType, setSortingType] = useState(0)
+    const [noOfLocations, setNoOfLocations] = useState(4)
     const {addLocationCount} = useContext(DataContext)
     const addressAPI = process.env.REACT_APP_BASE_API_URL
     
@@ -116,6 +136,12 @@ function Location() {
         .then(data => setLocation(data)))
         .catch(errors => console.log("Error fetching all Locations", errors))
         .finally(() => {setIsLoading(false)})   
+    }
+
+    const slicedLocation = location.slice(0,noOfLocations)
+
+    const handleLoadMore = () => {
+        setNoOfLocations(noOfLocations + noOfLocations)
     }
 
     const handleDelete = (id) => {
@@ -153,10 +179,10 @@ function Location() {
                     <option value="1">Sort Alphabetical A-Z</option>
                     <option value="2">Sort Alphabetical Z-A</option>
                 </SortSelect>
-                <SortButton onClick={(e) => handleSort()} onKeyDown={(e) => handleSort()}>Sort</SortButton>
+                <SortButton onClick={(e) => handleSort()}>Sort</SortButton>
             </TitleSection>
             <ListSection aria-label="Location List">
-                {isLoading ? <ListItem>Data is Loading</ListItem> : location.map(locationItem => (
+                {isLoading ? <ListItem>Data is Loading</ListItem> : slicedLocation.map(locationItem => (
                     <ListItem key = {locationItem.id}>
                         <StyledLink to={`/lists/${locationItem.id}`}>
                             <h5>Shop Here</h5>
@@ -166,6 +192,9 @@ function Location() {
                     </ListItem>
                 ))}
             </ListSection>
+            <ShowMoreSection>
+                {location.length > noOfLocations ? <LoadMoreButton onClick={(e) => handleLoadMore()}>Load More</LoadMoreButton> :<EmptyLoadMoreDiv></EmptyLoadMoreDiv>}
+            </ShowMoreSection>
         </Section>
     );
 }

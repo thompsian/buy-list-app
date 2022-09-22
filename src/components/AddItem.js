@@ -106,7 +106,7 @@ function AddItem() {
                     type="text" 
                     id="itemname" 
                     required 
-                    placeholder = "Enter Item Name" 
+                    placeholder = "Enter Item Name (22 char max)" 
                     name="name"
                     maxLength={22} 
                     value={newItem.name} 
@@ -115,7 +115,7 @@ function AddItem() {
                 <StyledInput 
                     type="text" 
                     id ="itemcategory" 
-                    placeholder = "Enter Item Category" 
+                    placeholder = "Enter Item Category (22 char max)" 
                     name="category" 
                     maxLength={22}
                     value={newItem.category} 
