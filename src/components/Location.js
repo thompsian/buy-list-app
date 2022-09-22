@@ -97,14 +97,22 @@ const DeleteButton = styled.button`
     white-space: nowrap;
 `
 
+const ShowMoreSection = styled.div`
+    display: flex;
+    justify-content: center;
+`
+
 const LoadMoreButton = styled.button`
     padding: .5em 1.5em;
     text-align: center;
     font-size: 1rem;
     margin: .5em;
+    width: 80%;
     &:hover {
        cursor: pointer;
     }
+`
+const EmptyLoadMoreDiv = styled.div`
 `
 
 function Location() {
@@ -183,7 +191,9 @@ function Location() {
                     </ListItem>
                 ))}
             </ListSection>
-            <LoadMoreButton onClick={(e) => handleLoadMore()}>Load More</LoadMoreButton>
+            <ShowMoreSection>
+                {location.length > noOfLocations ? <LoadMoreButton onClick={(e) => handleLoadMore()}>Load More</LoadMoreButton> :<EmptyLoadMoreDiv></EmptyLoadMoreDiv>}
+            </ShowMoreSection>
         </Section>
     );
 }
