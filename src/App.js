@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Main from './pages/Main'
 import List from './pages/List'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import { DataContextProvider } from './contexts/dataContext'
+import { ThemeContextProvider } from './contexts/themeContext'
+import { GlobalStyle } from './globalStyles'
 import styled from 'styled-components'
 
 const ContainerOuter = styled.div`
@@ -19,7 +21,10 @@ const ContainerContent = styled.div`
 
 function App() {
     return (
+        <>
+        <GlobalStyle />
         <Router>
+            <ThemeContextProvider>
             <DataContextProvider>
             <ContainerOuter>
                 <Header />
@@ -32,7 +37,9 @@ function App() {
                 <Footer />
             </ContainerOuter>
             </DataContextProvider>
+            </ThemeContextProvider>
         </Router>
+        </>
     );
 }
 
