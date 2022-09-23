@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from "react-router-dom"
 import styled from 'styled-components'
+import { ThemeContext } from '../contexts/themeContext'
 
 const Title = styled.h1`
     font-size: 2.2rem;
@@ -38,15 +39,18 @@ const StyledLink = styled(Link)`
 `;
 
 function Header() {
-  return (
-    <Section>
-        <Title>BuyList</Title>
-        <SubTitle>The Simplest Shopping List</SubTitle>
-        <NavBar aria-label="Navigation List">
-            <StyledLink aria-label="Return to Locations Home Page" to="/">Home</StyledLink>
-        </NavBar>
-    </Section>
-  );
+    const context = useContext(ThemeContext)
+
+    return (
+        <Section>
+            <Title>BuyList</Title>
+            <SubTitle>The Simplest Shopping List</SubTitle>
+            <NavBar aria-label="Navigation List">
+                <StyledLink aria-label="Return to Locations Home Page" to="/">Home</StyledLink>
+            </NavBar>
+            <button onClick={context.toggleTheme}>Toggle</button>
+        </Section>
+    );
 }
 
 export default Header;
