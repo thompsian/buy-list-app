@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Main from './pages/Main'
 import List from './pages/List'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import { DataContextProvider } from './contexts/dataContext'
-import { ThemeContextProvider } from './contexts/themeContext'
-import { GlobalStyle } from './globalStyles'
+import { ThemeProvider } from "styled-components";
+import { GlobalStyles } from "./components/GlobalStyles";
+import { lightTheme, darkTheme } from "./components/Themes"
+import { DataContext } from './contexts/dataContext'
 import styled from 'styled-components'
 
 const ContainerOuter = styled.div`
@@ -20,11 +22,12 @@ const ContainerContent = styled.div`
 `
 
 function App() {
+    const theme = useContext(DataContext)
     return (
+        <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
         <>
-        <GlobalStyle />
+        <GlobalStyles />
         <Router>
-            <ThemeContextProvider>
             <DataContextProvider>
             <ContainerOuter>
                 <Header />
@@ -37,9 +40,9 @@ function App() {
                 <Footer />
             </ContainerOuter>
             </DataContextProvider>
-            </ThemeContextProvider>
         </Router>
         </>
+        </ThemeProvider>
     );
 }
 

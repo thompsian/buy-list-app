@@ -9,9 +9,14 @@ function DataContextProvider(props) {
         setAddLocationCount(addLocationCount + 1)
         setAddItemCount(addItemCount + 1)
     }
-    
+
+    const [theme, setTheme] = useState('light');
+    const toggleTheme = () => {
+      theme === 'light' ? setTheme('dark') : setTheme('light')
+  }
+    console.log(theme)
     return (
-        <DataContext.Provider value={{addLocationCount, addItemCount, addCount}}>
+        <DataContext.Provider value={{addLocationCount, addItemCount, addCount , theme , toggleTheme }}>
             {props.children}
         </DataContext.Provider>
     )

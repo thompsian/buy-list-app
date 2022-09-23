@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { Link } from "react-router-dom"
 import styled from 'styled-components'
-import { ThemeContext } from '../contexts/themeContext'
+import { DataContext } from '../contexts/dataContext'
 
 const Title = styled.h1`
     font-size: 2.2rem;
@@ -39,8 +39,7 @@ const StyledLink = styled(Link)`
 `;
 
 function Header() {
-    const context = useContext(ThemeContext)
-
+    const context = useContext(DataContext)
     return (
         <Section>
             <Title>BuyList</Title>
