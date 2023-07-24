@@ -39,7 +39,7 @@ const StyledLink = styled.a`
 function Footer() {
   return (
         <Section>
-            <SubTitle>Copyright 2022: Developed by Ian Thompson</SubTitle>
+            <SubTitle>Copyright 2023: Developed by Ian Thompson</SubTitle>
             <LinkList>
                 <ListItem>
                     <StyledLink href = "https://thompsian.github.io/" target="_blank" rel="noreferrer">Portfolio</StyledLink>

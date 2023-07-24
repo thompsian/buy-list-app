@@ -1,7 +1,6 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { Link } from "react-router-dom"
 import styled from 'styled-components'
-import { DataContext } from '../contexts/dataContext'
 
 const Title = styled.h1`
     font-size: 2.2rem;
@@ -39,7 +38,6 @@ const StyledLink = styled(Link)`
 `;
 
 function Header() {
-    const context = useContext(DataContext)
     return (
         <Section>
             <Title>BuyList</Title>
@@ -47,7 +45,7 @@ function Header() {
             <NavBar aria-label="Navigation List">
                 <StyledLink aria-label="Return to Locations Home Page" to="/">Home</StyledLink>
             </NavBar>
-            <button onClick={context.toggleTheme}>Toggle</button>
+            <button >Toggle</button>
         </Section>
     );
 }
