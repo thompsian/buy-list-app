@@ -12,6 +12,8 @@
 
 * styled-components version 5.3.3
 
+* local-storage-fallback 4.1.2
+
 ### Branches are the planned stages of development:
 
 1. mvp - Can add / remove shopping locations and items for each location. Lightweight, simple styling with functionallity as top priority.
