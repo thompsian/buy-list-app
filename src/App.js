@@ -1,13 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState , useEffect } from 'react'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Main from './pages/Main'
 import List from './pages/List'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import { DataContextProvider } from './contexts/dataContext'
-import { ThemeProvider , createGlobalStyle } from "styled-components";
-import { lightTheme, darkTheme } from "./components/Themes"
-import styled from 'styled-components'
+import styled, { ThemeProvider , createGlobalStyle } from "styled-components"
+import storage from "local-storage-fallback"
 
 const GlobalStyle = createGlobalStyle`
     * {
@@ -33,10 +32,22 @@ const ContainerContent = styled.div`
 `
 
 function App() {
-    const [theme, setTheme] = useState('light')
-    console.log(theme)
+    
+    const [theme, setTheme] = useState(getInitialTheme)
+
+    useEffect(() => {
+        storage.setItem('theme', JSON.stringify(theme))
+    }, [theme])
+
+    function getInitialTheme() {
+        const savedTheme = storage.getItem('theme')
+
+        return savedTheme ? JSON.parse(savedTheme) : {mode: 'light'}
+    }
+
+    console.log(theme.mode)
     return (
-        <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+        <ThemeProvider theme={theme}>
         <>
         <GlobalStyle />
         <Router>
