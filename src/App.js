@@ -45,6 +45,10 @@ function App() {
         return savedTheme ? JSON.parse(savedTheme) : {mode: 'light'}
     }
 
+    function updateTheme(){
+        setTheme(theme.mode === "dark" ? { mode: "light" } : { mode: "dark" })
+    }
+
     console.log(theme.mode)
     return (
         <ThemeProvider theme={theme}>
@@ -53,7 +57,7 @@ function App() {
         <Router>
             <DataContextProvider>
             <ContainerOuter>
-                <Header />
+                <Header theme={theme} updateTheme={updateTheme}/>
                 <ContainerContent>
                     <Routes>
                         <Route path="/" element={<Main/>} />

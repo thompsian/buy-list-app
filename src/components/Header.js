@@ -37,7 +37,9 @@ const StyledLink = styled(Link)`
     }
 `;
 
-function Header() {
+function Header(props) {
+    const {theme, updateTheme} = props
+    console.log(theme)
     return (
         <Section>
             <Title>BuyList</Title>
@@ -45,7 +47,7 @@ function Header() {
             <NavBar aria-label="Navigation List">
                 <StyledLink aria-label="Return to Locations Home Page" to="/">Home</StyledLink>
             </NavBar>
-            <button >Toggle</button>
+            <button onClick={updateTheme}>Toggle</button>
         </Section>
     );
 }
