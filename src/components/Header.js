@@ -13,6 +13,7 @@ const SubTitle = styled.h6`
     margin: 0 auto;
 `
 const NavBar = styled.ul`
+    display:inline;
     text-decoration: none;
     text-align:left;
     list-style-type:none;
@@ -35,11 +36,22 @@ const StyledLink = styled(Link)`
     &:focus {
         text-decoration: underline;
     }
-`;
+`
+
+const DarkModeButton = styled.button`
+    display: inline;
+    float: right;
+    padding: .25em
+    margin: 1rem;
+    font-size: 0.95rem;
+    &:hover {
+        cursor: pointer;
+    }
+`
 
 function Header(props) {
     const {theme, updateTheme} = props
-    console.log(theme)
+
     return (
         <Section>
             <Title>BuyList</Title>
@@ -47,7 +59,7 @@ function Header(props) {
             <NavBar aria-label="Navigation List">
                 <StyledLink aria-label="Return to Locations Home Page" to="/">Home</StyledLink>
             </NavBar>
-            <button onClick={updateTheme}>Toggle</button>
+            <DarkModeButton aria-label="Toggle between light/dark styling modes" onClick={updateTheme}>Toggle {theme.mode === 'light' ? 'Dark Mode' : 'Light Mode'}</DarkModeButton>
         </Section>
     );
 }
