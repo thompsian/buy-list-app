@@ -14,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
     }  
 
     body {
-        background: #ccccb3;
+        background: ${props => (props.theme.mode === "dark" ? "#0f0f0a" : "#ccccb3")};
         font-family: sans-serif;
         line-height: 1.4;
         margin: 0;
@@ -49,7 +49,6 @@ function App() {
         setTheme(theme.mode === "dark" ? { mode: "light" } : { mode: "dark" })
     }
 
-    console.log(theme.mode)
     return (
         <ThemeProvider theme={theme}>
         <>
