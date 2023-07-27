@@ -36,14 +36,14 @@ const AddButton = styled.button`
     font-size: 1rem;
     margin-left: auto;
     border-radius: 0 3rem 3rem 0;
-    background: ${props => (props.theme.mode === "dark" ? "#e6f2ff" : "#00264d")};
+    background: ${props => (props.theme.mode === "dark" ? "#99ff99" : "#004d00")};
     color: ${props => (props.theme.mode === "dark" ? "#000000" : "#ffffff")};
     cursor: pointer;
     &:hover {
-        background: ${props => (props.theme.mode === "dark" ? "#99ccff" : "#004d99")};
+        background: ${props => (props.theme.mode === "dark" ? "#ccffcc" : "#008000")};
     }
     &:focus {
-        background: ${props => (props.theme.mode === "dark" ? "#99ccff" : "#004d99")};
+        background: ${props => (props.theme.mode === "dark" ? "#ccffcc" : "#008000")};
     }
 `
 
