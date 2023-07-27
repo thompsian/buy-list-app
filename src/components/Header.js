@@ -9,7 +9,7 @@ const Title = styled.h1`
     color: ${props => (props.theme.mode === "dark" ? "#ffffff" : "#000000")};
 `
 const SubTitle = styled.h6`
-    font-size: 1.25rem;
+    font-size: 1rem;
     text-align: center;
     margin: 0 auto;
     color: ${props => (props.theme.mode === "dark" ? "#ffffff" : "#000000")};
@@ -29,9 +29,9 @@ const Section = styled.div`
 const StyledLink = styled(Link)`
     color: ${props => (props.theme.mode === "dark" ? "#ffffff" : "#000000")};
     text-decoration: none;
-    padding: .25em
+    padding: .5em
     margin: 1rem;
-    font-size: 1rem;
+    font-size: 2.3rem;
     &:hover {
         text-decoration: underline;
     }
@@ -41,15 +41,14 @@ const StyledLink = styled(Link)`
 `
 
 const DarkModeButton = styled.button`
-    display: inline;
     float: right;
     font-family: inherit;
-    padding: .25em
-    margin: 1rem;
+    padding: 11px;
+    margin: 0.2rem;
     font-size: 1rem;
     line-height: 1.4;
     border: 0;
-    border-radius: 0.5rem;
+    border-radius: 3rem;
     background: ${props => (props.theme.mode === "dark" ? "#e6f2ff" : "#00264d")};
     color: ${props => (props.theme.mode === "dark" ? "#000000" : "#ffffff")};
     white-space: nowrap;

@@ -30,7 +30,7 @@ const AddInput = styled.input`
 `
 
 const AddButton = styled.button`
-    padding: .5em 2em;
+    padding: .7em 2em;
     text-align: center;
     font-size: 1rem;
     margin-left: auto;

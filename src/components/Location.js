@@ -25,10 +25,8 @@ const SortSelect = styled.select`
     text-align: center;
     margin-right: 1em;
     padding: .5em 2em;
+    cursor: pointer;
 
-    &:hover {
-        cursor: pointer;
-    }
 
     @media (max-width: 650px) {
         margin-right: 0;
@@ -39,9 +37,15 @@ const SortButton = styled.button`
     padding: .5em 2em;
     text-align: center;
     margin-left: auto;
-
+    cursor: pointer;
+    border-radius: 2rem;
+    background: ${props => (props.theme.mode === "dark" ? "#e6f2ff" : "#00264d")};
+    color: ${props => (props.theme.mode === "dark" ? "#000000" : "#ffffff")};
     &:hover {
-        cursor: pointer;
+        background: ${props => (props.theme.mode === "dark" ? "#99ccff" : "#004d99")};
+    }
+    &:focus {
+        background: ${props => (props.theme.mode === "dark" ? "#99ccff" : "#004d99")};
     }
 `
 const Label = styled.label`
@@ -49,6 +53,7 @@ const Label = styled.label`
     margin: 0;
     text-align: left;
     padding 0 1em 0 0;
+    color: ${props => (props.theme.mode === "dark" ? "#ffffff" : "#000000")};
 `
 
 const ListSection = styled.ul`
