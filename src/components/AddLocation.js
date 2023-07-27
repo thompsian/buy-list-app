@@ -3,7 +3,7 @@ import { DataContext } from '../contexts/dataContext'
 import styled from 'styled-components'
 
 const Section = styled.div`
-    background-color: #f5f5f0;
+    background-color: ${props => (props.theme.mode === "dark" ? "#4d4d33" : "#f5f5f0")};
     border-radius: 15px; 
     margin: 0 auto;
     padding: 1em;
@@ -20,6 +20,7 @@ const AddLabel = styled.label`
     padding: .5em;
     font-size: 1rem;
     white-space: nowrap;
+    color: ${props => (props.theme.mode === "dark" ? "#ffffff" : "#000000")};
 `
 
 const AddInput = styled.input`
@@ -33,8 +34,14 @@ const AddButton = styled.button`
     text-align: center;
     font-size: 1rem;
     margin-left: auto;
+    background: ${props => (props.theme.mode === "dark" ? "#e6f2ff" : "#00264d")};
+    color: ${props => (props.theme.mode === "dark" ? "#000000" : "#ffffff")};
+    cursor: pointer;
     &:hover {
-        cursor: pointer;
+        background: ${props => (props.theme.mode === "dark" ? "#99ccff" : "#004d99")};
+    }
+    &:focus {
+        background: ${props => (props.theme.mode === "dark" ? "#99ccff" : "#004d99")};
     }
 `
 
