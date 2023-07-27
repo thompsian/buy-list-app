@@ -27,6 +27,7 @@ const AddInput = styled.input`
     padding: .5em;
     font-size: 1rem;
     flex: 1;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.10);
 `
 
 const AddButton = styled.button`
@@ -34,6 +35,7 @@ const AddButton = styled.button`
     text-align: center;
     font-size: 1rem;
     margin-left: auto;
+    border-radius: 0 3rem 3rem 0;
     background: ${props => (props.theme.mode === "dark" ? "#e6f2ff" : "#00264d")};
     color: ${props => (props.theme.mode === "dark" ? "#000000" : "#ffffff")};
     cursor: pointer;
