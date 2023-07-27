@@ -49,15 +49,15 @@ const DarkModeButton = styled.button`
     line-height: 1.4;
     border: 0;
     border-radius: 3rem;
-    background: ${props => (props.theme.mode === "dark" ? "#e6f2ff" : "#00264d")};
+    background: ${props => (props.theme.mode === "dark" ? "#99ccff" : "#00264d")};
     color: ${props => (props.theme.mode === "dark" ? "#000000" : "#ffffff")};
     white-space: nowrap;
     cursor: pointer;
     &:hover {
-        background: ${props => (props.theme.mode === "dark" ? "#99ccff" : "#004d99")};
+        background: ${props => (props.theme.mode === "dark" ? "#e6f2ff" : "#004d99")};
     }
     &:focus {
-        background: ${props => (props.theme.mode === "dark" ? "#99ccff" : "#004d99")};
+        background: ${props => (props.theme.mode === "dark" ? "#e6f2ff" : "#004d99")};
     }
 `
 
