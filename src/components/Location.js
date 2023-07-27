@@ -120,9 +120,7 @@ const DeleteButton = styled.button`
     font-size: 1rem;
     margin: .5m;
     border-radius: 3rem;
-    &:hover {
-       cursor: pointer;
-    }
+    cursor: pointer;
     margin-left: auto;
     white-space: nowrap;
     background: ${props => (props.theme.mode === "dark" ? "#ffb3b3" : "#4d0000")};
