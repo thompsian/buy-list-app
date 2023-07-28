@@ -4,33 +4,45 @@ import styled from 'styled-components'
 
 const Title = styled.h1`
     font-size: 2.2rem;
-    margin: .25em;
-    text-align: center;
+    margin-left: 1rem;
+    display: inline;
     color: ${props => (props.theme.mode === "dark" ? "#ffffff" : "#000000")};
 `
 const SubTitle = styled.h6`
     font-size: 1rem;
-    text-align: center;
-    margin: 0 auto;
+    margin: 0;
+    display: inline;
+    vertical-align: top;
+    float: right;
     color: ${props => (props.theme.mode === "dark" ? "#ffffff" : "#000000")};
 `
 const NavBar = styled.ul`
-    display: inline;
     text-decoration: none;
     text-align: left;
-    list-style-type: none;
-    margin: 0 auto;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 `
 const Section = styled.div`
     background-color: ${props => (props.theme.mode === "dark" ? "#0f0f0a" : "#ccccb3")};
     margin: 0 auto;
     padding: 1em;
 `
+const TitleDiv = styled.div`
+
+`
+
+const MenuDiv = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+`
+
 const StyledLink = styled(Link)`
     color: ${props => (props.theme.mode === "dark" ? "#ffffff" : "#000000")};
     text-decoration: none;
-    padding: .5em
-    margin: 1rem;
+    padding: 1rem;
+    margin: 0;
     font-size: 2.3rem;
     &:hover {
         text-decoration: underline;
@@ -41,7 +53,6 @@ const StyledLink = styled(Link)`
 `
 
 const DarkModeButton = styled.button`
-    float: right;
     font-family: inherit;
     padding: 11px;
     margin: 0.2rem;
@@ -66,14 +77,20 @@ function Header(props) {
 
     return (
         <Section>
-            <Title>BuyList</Title>
-            <SubTitle>The Simplest Shopping List</SubTitle>
-            <NavBar aria-label="Navigation List">
-                <StyledLink aria-label="Return to Locations Home Page" to="/">Home</StyledLink>
-            </NavBar>
-            <DarkModeButton aria-label="Toggle between light/dark styling modes" 
-                onClick={updateTheme}>Toggle {theme.mode === 'light' ? 'Dark Mode' : 'Light Mode'}
-            </DarkModeButton>
+            <TitleDiv>
+                <Title>BuyList</Title>
+                <SubTitle>The Simplest Shopping List</SubTitle>
+            </TitleDiv>
+            <MenuDiv>
+                <NavBar aria-label="Navigation List">
+                    <StyledLink aria-label="Return to Locations Home Page" to="/">Home</StyledLink>
+                    <StyledLink aria-label="Recipes / Sets of items from multiple locations" to="/">Recipes</StyledLink>
+                    <StyledLink aria-label="Control webpage settings" to="/">Settings</StyledLink>
+                </NavBar>
+                <DarkModeButton aria-label="Toggle between light/dark styling modes" 
+                    onClick={updateTheme}>Toggle {theme.mode === 'light' ? 'Dark Mode' : 'Light Mode'}
+                </DarkModeButton>
+            </MenuDiv>
         </Section>
     );
 }
