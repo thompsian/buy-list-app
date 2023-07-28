@@ -2,13 +2,14 @@ import React from 'react';
 import styled from 'styled-components'
 
 const Section = styled.div`
-    background-color: #ccccb3;
+    background-color: ${props => (props.theme.mode === "dark" ? "#0f0f0a" : "#ccccb3")};
     padding: 0.33em;
 `
 const SubTitle = styled.h6`
     font-size: .75rem;
     text-align: center;
     margin: 0 auto;
+    color: ${props => (props.theme.mode === "dark" ? "#ffffff" : "#000000")};
 `
 const LinkList = styled.ul`
     list-style-type: none;
@@ -23,7 +24,7 @@ const ListItem = styled.li`
 
 const StyledLink = styled.a`
     display: block;
-    color: black;
+    color: ${props => (props.theme.mode === "dark" ? "#ffffff" : "#000000")};
     text-align: center;
     padding: .15em .75em;
     text-decoration: none;
@@ -39,7 +40,7 @@ const StyledLink = styled.a`
 function Footer() {
   return (
         <Section>
-            <SubTitle>Copyright 2022: Developed by Ian Thompson</SubTitle>
+            <SubTitle>Copyright 2023: Developed by Ian Thompson</SubTitle>
             <LinkList>
                 <ListItem>
                     <StyledLink href = "https://thompsian.github.io/" target="_blank" rel="noreferrer">Portfolio</StyledLink>

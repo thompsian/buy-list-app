@@ -9,7 +9,7 @@ function DataContextProvider(props) {
         setAddLocationCount(addLocationCount + 1)
         setAddItemCount(addItemCount + 1)
     }
-    
+
     return (
         <DataContext.Provider value={{addLocationCount, addItemCount, addCount}}>
             {props.children}
