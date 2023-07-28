@@ -3,6 +3,8 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import Main from './pages/Main'
 import List from './pages/List'
+import Recipes from './pages/Recipes'
+import SettingsPage from './pages/SettingsPage'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import { DataContextProvider } from './contexts/dataContext'
 import styled, { ThemeProvider , createGlobalStyle } from "styled-components"
@@ -61,6 +63,8 @@ function App() {
                     <Routes>
                         <Route path="/" element={<Main/>} />
                         <Route path="/lists/:locationID" element={<List/>} />
+                        <Route path="/recipes" element={<Recipes/>} />
+                        <Route path="/settings" element={<SettingsPage/>} />
                     </Routes>
                 </ContainerContent>
                 <Footer />

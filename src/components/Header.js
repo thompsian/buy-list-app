@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 const Title = styled.h1`
     font-size: 2.2rem;
-    margin-left: 1rem;
+    margin-left: 16px;
     display: inline;
     color: ${props => (props.theme.mode === "dark" ? "#ffffff" : "#000000")};
 `
@@ -41,7 +41,7 @@ const MenuDiv = styled.div`
 const StyledLink = styled(Link)`
     color: ${props => (props.theme.mode === "dark" ? "#ffffff" : "#000000")};
     text-decoration: none;
-    padding: 1rem;
+    padding: 0 16px 0 16px;
     margin: 0;
     font-size: 2.3rem;
     &:hover {
@@ -84,8 +84,8 @@ function Header(props) {
             <MenuDiv>
                 <NavBar aria-label="Navigation List">
                     <StyledLink aria-label="Return to Locations Home Page" to="/">Home</StyledLink>
-                    <StyledLink aria-label="Recipes / Sets of items from multiple locations" to="/">Recipes</StyledLink>
-                    <StyledLink aria-label="Control webpage settings" to="/">Settings</StyledLink>
+                    <StyledLink aria-label="Recipes / Sets of items from multiple locations" to="/recipes">Recipes</StyledLink>
+                    <StyledLink aria-label="Control webpage settings" to="/settings">Settings</StyledLink>
                 </NavBar>
                 <DarkModeButton aria-label="Toggle between light/dark styling modes" 
                     onClick={updateTheme}>Toggle {theme.mode === 'light' ? 'Dark Mode' : 'Light Mode'}
