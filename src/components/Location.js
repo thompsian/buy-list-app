@@ -95,6 +95,10 @@ const LocationName = styled.h4`
     font-size: 3rem;
     font-weight: bold;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis ellipsis;
+    max-inline-size: 60ch;
+
     color: ${props => (props.theme.mode === "dark" ? "#ffffff" : "#000000")};
 `
 const StyledLink = styled(Link)`  

@@ -120,6 +120,10 @@ const StyledName = styled.p`
     font-size: 1.1rem;
     text-align: center;
     color: ${props => (props.theme.mode === "dark" ? "#ffffff" : "#000000")};
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis ellipsis;
+    max-inline-size: 20ch;
 `
 
 const StyledCategory = styled.p`
@@ -128,6 +132,10 @@ const StyledCategory = styled.p`
     font-size: 0.9rem;
     text-align: center;
     color: ${props => (props.theme.mode === "dark" ? "#ffffff" : "#000000")};
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis ellipsis;
+    max-inline-size: 24ch;
 `
 
 const ShowMoreSection = styled.div`

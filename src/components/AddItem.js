@@ -114,9 +114,8 @@ function AddItem() {
                     type="text" 
                     id="itemname" 
                     required 
-                    placeholder = "Enter Item Name (22 char max)" 
+                    placeholder = "Enter Item Name" 
                     name="name"
-                    maxLength={22} 
                     value={newItem.name} 
                     onChange={handleChange}/>
                 <StyledLabel htmlFor="itemcategory">Item Category:</StyledLabel>
