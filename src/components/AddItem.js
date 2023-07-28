@@ -86,9 +86,6 @@ function AddItem() {
     }
 
     const handleChange = (e) => {
-        if (e.target.value.length === 22){
-            window.alert("Item name and category should not exceed 22 characters each")
-        }
         setNewItem({
             ...newItem,
             [e.target.name]:e.target.value
@@ -126,9 +123,8 @@ function AddItem() {
                 <StyledInput 
                     type="text" 
                     id ="itemcategory" 
-                    placeholder = "Enter Item Category (22 char max)" 
+                    placeholder = "Enter Item Category" 
                     name="category" 
-                    maxLength={22}
                     value={newItem.category} 
                     onChange={handleChange}/>
                 <StyledButton aria-label="Submit the Add Item Form">Add</StyledButton>

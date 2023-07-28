@@ -53,9 +53,6 @@ function AddLocation() {
     const addressAPI = process.env.REACT_APP_BASE_API_URL
 
     const handleChange = (e) => {
-        if (e.target.value.length === 18){
-            window.alert("Location name should not exceed 18 characters")
-        }
         setName(e.target.value)
     }
     
@@ -81,9 +78,8 @@ function AddLocation() {
                     type="text" 
                     id="addlocation"
                     required
-                    placeholder="Enter Location Name (max 18 char)"
+                    placeholder="Enter Location Name"
                     value={name}
-                    maxLength={18}
                     onChange={handleChange}
                 />
                 <AddButton aria-label="Submit the Add Location Form">Add</AddButton>
