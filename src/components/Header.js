@@ -1,6 +1,7 @@
 import React from 'react'
-import { Link } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 import styled from 'styled-components'
+import useMediaQuery from '../hooks/useMediaQuery'
 
 const Title = styled.h1`
     font-size: 2.2rem;
@@ -17,6 +18,7 @@ const SubTitle = styled.h6`
     color: ${props => (props.theme.mode === "dark" ? "#ffffff" : "#000000")};
 `
 const NavBar = styled.ul`
+    display: flex;
     text-decoration: none;
     text-align: left;
     list-style: none;
@@ -38,7 +40,7 @@ const MenuDiv = styled.div`
     justify-content: space-between;
 `
 
-const StyledLink = styled(Link)`
+const StyledLink = styled(NavLink)`
     color: ${props => (props.theme.mode === "dark" ? "#ffffff" : "#000000")};
     text-decoration: none;
     padding: 0 16px 0 16px;
@@ -74,6 +76,7 @@ const DarkModeButton = styled.button`
 
 function Header(props) {
     const {theme, updateTheme} = props
+    const isDesktop = useMediaQuery('(min-width: 960px)')
 
     return (
         <Section>
