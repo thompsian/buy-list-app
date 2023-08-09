@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import { DataContextProvider } from './contexts/dataContext'
 import styled, { ThemeProvider , createGlobalStyle } from "styled-components"
 import storage from "local-storage-fallback"
+import useMediaQuery from './hooks/useMediaQuery'
 
 const GlobalStyle = createGlobalStyle`
     * {
@@ -36,6 +37,7 @@ const ContainerContent = styled.div`
 function App() {
     
     const [theme, setTheme] = useState(getInitialTheme)
+    const isDesktop = useMediaQuery('(min-width: 960px)')
 
     useEffect(() => {
         storage.setItem('theme', JSON.stringify(theme))
@@ -58,7 +60,7 @@ function App() {
         <Router>
             <DataContextProvider>
             <ContainerOuter>
-                <Header theme={theme} updateTheme={updateTheme}/>
+                <Header theme={theme} updateTheme={updateTheme} isDesktop={isDesktop}/>
                 <ContainerContent>
                     <Routes>
                         <Route path="/" element={<Main/>} />
