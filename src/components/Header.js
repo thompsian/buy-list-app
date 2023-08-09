@@ -26,9 +26,11 @@ const Section = styled.div`
     margin: 0 auto;
     padding: 1em;
 `
+
+//Bug in TitleDiv - justify-content conditional always evaluates to false
 const TitleDiv = styled.div`
     display: flex;
-    justify-content: space-between;
+    justify-content: ${props => (props.isDesktop ? "space-between" : "center")};
     align-items: flex-start;
 `
 
@@ -88,7 +90,7 @@ const SideBar = styled.nav`
 function Header(props) {
     const {theme, updateTheme, isDesktop} = props
     const [ isSidebarOpen, setIsSidebarOpen ] = useState(false)
-    console.log(isSidebarOpen)
+    console.log(isDesktop)
 
     return (
         <Section>
