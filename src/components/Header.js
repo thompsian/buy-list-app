@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { NavLink } from "react-router-dom"
 import styled from 'styled-components'
+import { useOnClickOutside } from '../hooks/useOnClickOutside'
 
 
 const Title = styled.h1`
@@ -29,7 +30,7 @@ const Section = styled.div`
 
 const TitleDiv = styled.div`
     display: flex;
-    justify-content: flex-end;
+    justify-content: ${({ isDesktop }) => isDesktop ? 'space-between' : 'center'};
     align-items: flex-start;
 `
 
@@ -107,12 +108,15 @@ const SideBarLink = styled(NavLink)`
 function Header(props) {
     const {theme, updateTheme, isDesktop} = props
     const [ isSidebarOpen, setIsSidebarOpen ] = useState(false)
+    const node = useRef()
+    
+    useOnClickOutside(node, () => setIsSidebarOpen(false))
 
     return (
         <Section>
-            <TitleDiv>
-                {isDesktop ? (<SubTitle>The Simplest Shopping List</SubTitle>) : null}
+            <TitleDiv isDesktop={isDesktop}>
                 <Title>BuyList</Title>
+                {isDesktop ? (<SubTitle>The Simplest Shopping List</SubTitle>) : null}
             </TitleDiv>
             <MenuDiv>
                 {isDesktop ? (
