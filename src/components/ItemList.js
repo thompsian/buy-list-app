@@ -120,6 +120,10 @@ const StyledName = styled.p`
     font-size: 1.1rem;
     text-align: center;
     color: ${props => (props.theme.mode === "dark" ? "#ffffff" : "#000000")};
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis ellipsis;
+    max-inline-size: 20ch;
 `
 
 const StyledCategory = styled.p`
@@ -128,6 +132,10 @@ const StyledCategory = styled.p`
     font-size: 0.9rem;
     text-align: center;
     color: ${props => (props.theme.mode === "dark" ? "#ffffff" : "#000000")};
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis ellipsis;
+    max-inline-size: 24ch;
 `
 
 const ShowMoreSection = styled.div`
@@ -153,6 +161,9 @@ const LoadMoreButton = styled.button`
     }
 `
 const EmptyLoadMoreDiv = styled.div`
+`
+
+const LoadingIcon = styled.img`
 `
 
 function ItemList() {
@@ -228,7 +239,7 @@ function ItemList() {
                 <SortButton onClick={(e) => handleSort()}>Sort</SortButton>
             </SortSection>
             <ListSection aria-label="Item List">
-                {isLoading ? <ListItem>Data is Loading</ListItem> : slicedItems.map(itemList => ( itemList.location_id == locationID && 
+                {isLoading ? <LoadingIcon src="../media/Spinner-1s-200px.svg" alt="Data is Loading" width="200" height="200"/> : slicedItems.map(itemList => ( itemList.location_id == locationID && 
                     <ListItem key = {itemList.id}>
                         <StyledName>{itemList.name}</StyledName>
                         <StyledCategory>{itemList.category}</StyledCategory>

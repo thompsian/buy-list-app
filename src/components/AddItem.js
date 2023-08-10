@@ -86,9 +86,6 @@ function AddItem() {
     }
 
     const handleChange = (e) => {
-        if (e.target.value.length === 22){
-            window.alert("Item name and category should not exceed 22 characters each")
-        }
         setNewItem({
             ...newItem,
             [e.target.name]:e.target.value
@@ -117,18 +114,16 @@ function AddItem() {
                     type="text" 
                     id="itemname" 
                     required 
-                    placeholder = "Enter Item Name (22 char max)" 
+                    placeholder = "Enter Item Name" 
                     name="name"
-                    maxLength={22} 
                     value={newItem.name} 
                     onChange={handleChange}/>
                 <StyledLabel htmlFor="itemcategory">Item Category:</StyledLabel>
                 <StyledInput 
                     type="text" 
                     id ="itemcategory" 
-                    placeholder = "Enter Item Category (22 char max)" 
+                    placeholder = "Enter Item Category" 
                     name="category" 
-                    maxLength={22}
                     value={newItem.category} 
                     onChange={handleChange}/>
                 <StyledButton aria-label="Submit the Add Item Form">Add</StyledButton>

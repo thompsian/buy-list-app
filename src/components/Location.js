@@ -95,6 +95,10 @@ const LocationName = styled.h4`
     font-size: 3rem;
     font-weight: bold;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis ellipsis;
+    max-inline-size: 60ch;
+
     color: ${props => (props.theme.mode === "dark" ? "#ffffff" : "#000000")};
 `
 const StyledLink = styled(Link)`  
@@ -156,6 +160,9 @@ const LoadMoreButton = styled.button`
     }
 `
 const EmptyLoadMoreDiv = styled.div`
+`
+
+const LoadingIcon = styled.img`
 `
 
 function Location() {
@@ -224,7 +231,7 @@ function Location() {
                 <SortButton onClick={(e) => handleSort()}>Sort</SortButton>
             </TitleSection>
             <ListSection aria-label="Location List">
-                {isLoading ? <ListItem>Data is Loading</ListItem> : slicedLocation.map(locationItem => (
+                {isLoading ? <LoadingIcon src="../media/Spinner-1s-200px.svg" alt="Data is Loading" width="200" height="200"/> : slicedLocation.map(locationItem => (
                     <ListItem key = {locationItem.id}>
                         <StyledLink to={`/lists/${locationItem.id}`}>
                             <h5>Shop Here</h5>
