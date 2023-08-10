@@ -163,6 +163,9 @@ const LoadMoreButton = styled.button`
 const EmptyLoadMoreDiv = styled.div`
 `
 
+const LoadingIcon = styled.img`
+`
+
 function ItemList() {
     const { locationID } = useParams()
     const [isLoading, setIsLoading] = useState(true)
@@ -236,7 +239,7 @@ function ItemList() {
                 <SortButton onClick={(e) => handleSort()}>Sort</SortButton>
             </SortSection>
             <ListSection aria-label="Item List">
-                {isLoading ? <ListItem>Data is Loading</ListItem> : slicedItems.map(itemList => ( itemList.location_id == locationID && 
+                {isLoading ? <LoadingIcon src="../media/Spinner-1s-200px.svg" alt="Data is Loading" width="200" height="200"/> : slicedItems.map(itemList => ( itemList.location_id == locationID && 
                     <ListItem key = {itemList.id}>
                         <StyledName>{itemList.name}</StyledName>
                         <StyledCategory>{itemList.category}</StyledCategory>
