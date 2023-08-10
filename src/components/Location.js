@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { DataContext } from '../contexts/dataContext'
 import styled from 'styled-components'
+import loadingSVG from '../media/Spinner-1s-200px.svg'
 
 const Section = styled.div`
     margin: 0 auto;
@@ -231,7 +232,7 @@ function Location() {
                 <SortButton onClick={(e) => handleSort()}>Sort</SortButton>
             </TitleSection>
             <ListSection aria-label="Location List">
-                {isLoading ? <LoadingIcon src="../media/Spinner-1s-200px.svg" alt="Data is Loading" width="200" height="200"/> : slicedLocation.map(locationItem => (
+                {isLoading ? <LoadingIcon src={loadingSVG} alt="Data is Loading" width="200" height="200"/> : slicedLocation.map(locationItem => (
                     <ListItem key = {locationItem.id}>
                         <StyledLink to={`/lists/${locationItem.id}`}>
                             <h5>Shop Here</h5>
